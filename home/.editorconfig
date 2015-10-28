@@ -1,0 +1,13 @@
+# http://editorconfig.org/
+
+# special property that should be specified at the top of the file outside of any sections. Set to true to stop .editorconfig files search on current file.
+root = true
+
+[*]
+
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+# set to true ensure file ends with a newline when saving and false to ensure it doesn't.
+insert_final_newline = true

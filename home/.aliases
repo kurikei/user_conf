@@ -1,0 +1,192 @@
+_CWD=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
+_BIN_DIR="${_CWD}/../bin"
+
+# ack
+
+# apache
+alias grace="sudo apachectl graceful"
+
+# cd
+cd() {
+	command cd "$@"
+	local s=$?
+	if [[ ($s -eq 0) && (${#FUNCNAME[*]} -eq 1) ]]; then
+		history -s cd $(printf "%q" "$PWD")
+	fi
+	return $s
+}
+
+alias user_conf="cd ${_CWD}/../"
+
+# exec
+alias renew="exec \$SHELL -l"
+
+# git
+## git add
+alias ga="git add "
+alias gap="git add -p"
+alias gau="git add -u"
+
+### 何かして通ったら git add
+##### perl -c && git add :
+function pcga(){
+        perl -c $1 && git add -p $1
+}
+
+### ruby -c && git add :
+function rcga(){
+        ruby -c $1 && git add -p $1
+}
+
+### rspec && git add :
+function rsga(){
+        rspec $1 && git add -p $1
+}
+
+
+# git branch
+alias gb="git branch "
+alias gob="git branch | perl -ln -e 'next if /master$/;print $1 if /^  (.+)/'"
+### git remote/origin branch
+function git-remote-origin-branch() {
+  #git fetch --prune --quiet
+  git branch -a | perl -ln -e 'print $1 if /remotes\/origin\/([^ ]+)/ && ! ($1 eq "HEAD")' | sort
+}
+### git local branch
+function git-local-not-current-branch() {
+  git branch | perl -ln -e 'next if /master/ || /^\*/; print $1 if $_ =~ /(\S+)/'
+}
+### git local-present-remote-absent
+function git-local-present-remote-absent() {
+  git fetch --prune --quiet
+  comm -13 <(git-remote-origin-branch) <(git-local-not-current-branch)
+}
+### git merged branch : 最新のorigin/master に merge 済のローカルブランチ一覧を表示
+alias gmb='git fetch --prune --quiet && git branch --merged `git log origin/master --format="%H" -n1` | perl -ln -e "next if /^\*/;next if /^\s+master$/;print"'
+### git pull-request branch : "pr/"から始まる非カレントブランチ (pull-requestのブランチ)
+alias gpb='git branch | grep "^  pr/"'
+# git diff
+alias gd="git diff --ignore-space-change "
+alias gdcw="gd --color-words "
+alias gdwd="gd --word-diff "
+
+alias gdc="gd --cached "
+alias gdcwd="gdc --word-diff "
+alias gdccw="gdc --color-words "
+
+alias gdfh="gd ..FETCH_HEAD"
+alias gdwdfh="gdwd ..FETCH_HEAD"
+alias gdcwfh="gdcw ..FETCH_HEAD"
+
+alias gdno="git diff --name-only "
+alias gdns="git diff --name-status "
+alias gds="git diff --stat "
+
+### git diff origin/XXX : 現在のカレントブランチとリモートのdiffをとる
+alias gdo="git fetch --prune --quiet && git diff {origin/,}$(git rev-parse --abbrev-ref HEAD)"
+## git gc
+alias ggc="git gc >& /dev/null 2>&1 &"
+alias ggca="git gc --aggressive >& /dev/null 2>&1 &"
+alias ggcp="git gc --prune >& /dev/null 2>&1 &"
+## git log
+alias gl="git log"
+## git status
+alias gs="git status"
+alias gsp="git status --porcelain "
+alias modifiedfile="gsp | perl -wln -e 'print \$2 if /^([ AMD]){2}(.+)/'"
+
+alias gkgs="gk && gs"
+alias gpush="git push && git log --max-count 1"
+
+# grep
+alias grep="grep --color"
+
+# history
+alias hisgrep="history | grep "
+
+# ls
+alias la="ls -a "
+alias ll="ls -la "
+alias ls='ls -F';
+
+# lv
+alias lse="lv -Is -Oej"
+alias lue="lv -Iu8 -Oej"
+
+# rbenv
+# http://stackoverflow.com/questions/30179484/install-latest-stable-version-of-ruby-using-rbenv/301798499
+alias latest_stable_ruby_version='rbenv install -l | grep -v - | tail -1'
+
+# rm
+alias rm="rm -i "
+
+# rails
+alias rails="bundle exec rails "
+
+# rake
+alias rake="bundle exec rake "
+
+# replace
+alias replace="${_BIN_DIR}/replace"
+
+# rspec
+alias rspec="bundle exec rspec "
+
+# rsync
+alias rsync="rsync --bwlimit=1000 " # 1000Kbyte/sで帯域制限
+
+# scp
+alias scp="scp -l 8000 " # 8000Kbit/sで帯域制限
+
+# vim
+# -u ... vimrc 指定 (vi互換になる)
+# -i ... viminfo 指定
+# -N ... vi互換解除
+alias vim="vim -u $USER_CONF_DIR/home/.vimrc -i $HOME/.viminfo -N"
+alias vim-plugin-install="vim +NeoBundleInstall +q"
+alias vim-plugin-update="vim +NeoBundleUpdate +q"
+
+# perl
+function uriescape(){
+  perl -MURI::Escape -e "print uri_escape(q{$1}) . \"\n\" "
+}
+
+function decode_base64(){
+  perl -MMIME::Base64 -e "print decode_base64(q{$1})";
+}
+
+# 非推奨になったネットワークコマンド養成ギプス
+# http://blog.livedoor.jp/sonots/archives/38589335.html
+# -----------------------------------------------------------------------------
+net_tools_deprecated_message () {
+  echo -n 'net-tools コマンドはもう非推奨ですよ？おじさんなんじゃないですか？ '
+}
+
+arp () {
+  net_tools_deprecated_message
+  echo 'Use `ip n`'
+}
+# ifconfig () {
+#   net_tools_deprecated_message
+#   echo 'Use `ip a`, `ip link`, `ip -s link`'
+# }
+iptunnel () {
+  net_tools_deprecated_message
+  echo 'Use `ip tunnel`'
+}
+iwconfig () {
+  echo -n 'iwconfig コマンドはもう非推奨ですよ？おじさんなんじゃないですか？ '
+  echo 'Use `iw`'
+}
+nameif () {
+  net_tools_deprecated_message
+  echo 'Use `ip link`, `ifrename`'
+}
+netstat () {
+  net_tools_deprecated_message
+  echo 'Use `ss`, `ip route` (for netstat -r), `ip -s link` (for netstat -i), `ip maddr` (for netstat -g)'
+}
+route () {
+  net_tools_deprecated_message
+  echo 'Use `ip r`'
+}

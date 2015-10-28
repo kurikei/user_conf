@@ -1,0 +1,42 @@
+#!/usr/bin/perl
+use Path::Tiny;
+use Term::ANSIColor;
+
+my $execute_command_at = sub {
+  my ($cmd, $dir) = @_;
+  say_with_color($cmd);
+  system(sprintf("(cd %s;%s)", $dir, $cmd));
+};
+my %FILE_COMMAND_MAP = (
+  'Gemfile'      => "bundle install --path=vendor/bundle",
+  'package.json' => "npm install",
+  'bower.json'   => "bower install",
+);
+my $JOINED_TARGET_FILES = join(" ", map { "*$_" } keys %FILE_COMMAND_MAP);
+
+# Exit if not invoked by rebase command.
+# exit if $ARGV[0] ne 'rebase';
+
+# Get modified templates...
+chomp(my $commit_info = $ARGV[1]);
+my ($old_sha1, $new_sha1) = split("\s", $commit_info);
+print "$commit_info\n";
+print "$old_sha1\n";
+print "$new_sha1\n";
+my @diff_file_paths = split("\n", `git diff --name-only --diff-filter=AM $old_sha1 $new_sha1 $JOINED_TARGET_FILES`);
+exit if @diff_file_paths == 0;
+
+for my $diff_file_path (@diff_file_paths) {
+
+  while (my ($file, $command) = each %FILE_COMMAND_MAP) {
+    next unless $diff_file_path =~ /$file/;
+    $execute_dir = path($diff_file_path)->parent->stringify;
+    $execute_command_at->($command, $execute_dir)
+  }
+}
+
+sub say_with_color {
+	print color 'bold green';
+	print "@_[0]\n";
+	print color 'reset';
+}

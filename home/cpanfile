@@ -1,0 +1,8 @@
+requires 'Class::Accessor::Lite';
+requires 'List::AllUtils';
+requires 'Path::Tiny';
+
+on 'develop' => sub {
+  requires 'DDP';
+  requires 'Devel::Size';
+};

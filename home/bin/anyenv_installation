@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+current_directory=$(pwd)
+anyenv_root=~/.anyenv
+
+cd ~/
+
+if [ ! -d ${anyenv_root} ]; then
+  git clone https://github.com/riywo/anyenv ${anyenv_root}
+  exec $SHELL -l
+fi
+
+for xenv in $(ls ${anyenv_root}/share/anyenv-install); do
+  which $xenv || anyenv install $xenv;
+done
+
+
+# install plugins
+mkdir -p ${anyenv_root}/plugins
+
+if [ ! -d ${anyenv_root}/plugins/anyenv-update ]; then
+  git clone https://github.com/znz/anyenv-update.git ${anyenv_root}/plugins/anyenv-update
+fi
+
+if [ ! -d ${anyenv_root}/plugins/anyenv-git ]; then
+  git clone https://github.com/znz/anyenv-git.git ${anyenv_root}/plugins/anyenv-git
+fi
+
+cd $current_directory

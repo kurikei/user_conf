@@ -1,0 +1,27 @@
+"*":
+  "exception-reporting":
+    userId: "b81d23b9-2225-d3ba-df50-0e9fffc2f561"
+  welcome:
+    showOnStartup: false
+  core:
+    themes: [
+      "atom-dark-ui"
+      "one-dark-syntax"
+    ]
+  editor:
+    invisibles: {}
+    showInvisibles: true
+  "api-docs":
+    angular: true
+    bower: true
+    coffeescript: true
+    git: true
+    grunt: true
+    jquery: true
+    jquerymobile: true
+    jqueryui: true
+    node: true
+    npm: true
+    rails: true
+    ruby: true
+  "autocomplete-plus": {}

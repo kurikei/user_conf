@@ -1,0 +1,31 @@
+[alias]
+  aliases = !git config --get-regexp alias
+  br     = branch
+  ci     = commit
+  co     = checkout
+  co-pr  = !git checkout-pullrequest
+  di     = diff
+  graph  = log --graph -C -M --pretty=format:'<%h> %ad [%an] %Cgreen%d%Creset %s' --all --date=short
+  ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
+  me     = !git config --get-regexp user
+  st     = status
+[alias]
+  checkout-pullrequest = !sh -c 'git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1' -
+[color]
+  branch      = auto
+  diff        = auto
+  interactive = auto
+  status      = auto
+  ui = auto
+[push]
+  default = simple
+[core]
+  editor = vim
+  excludesfile = ~/.gitignore
+[user]
+  name = 
+  email = 
+[credential]
+  helper = osxkeychain
+[fetch]
+  prune = true

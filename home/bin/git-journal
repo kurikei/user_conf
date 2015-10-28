@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+if [ ! $GIT_JOURNAL_AUTHOR ]; then
+  GIT_JOURNAL_AUTHOR="$1"
+  shift
+fi
+
+echo "author:${GIT_JOURNAL_AUTHOR}"
+
+cd ~/git/
+
+for git_host in $(ls); do
+  cd $git_host
+
+  for organization in $(ls); do
+    cd $organization
+
+    for repository in $(ls);do
+      cd $repository
+
+      # エラーではないが進捗状況を把握するために標準エラー出力に出力する
+      echo "${git_host}/${organization}/${repository} start..."  3>&1 1>&2 2>&3
+
+      repo_url=$(git config remote.origin.url | perl -ln -e 'print sprintf("https://%s/%s", $1,$2) if /^git@([^:]+):([^:]+)\.git$/')
+
+      git fetch --quiet
+      git log --all --reverse --author="$GIT_JOURNAL_AUTHOR" --since="`date +%Y/%m/%d` 00:00:00" --date="format:%H:%M" --pretty="format:  - %cd  ${organization}/**${repository}** | %s - [%h](${repo_url}/commit/%h)"
+
+      # エラーではないが進捗状況を把握するために標準エラー出力に出力する
+      echo "${git_host}/${organization}/${repository} end."  3>&1 1>&2 2>&3
+      echo ""
+      cd ../
+
+    done
+
+    cd ../
+
+  done
+
+  cd ../
+done | sort -n
