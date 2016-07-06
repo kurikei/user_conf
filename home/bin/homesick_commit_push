@@ -3,7 +3,7 @@ export RBENV_VERSION=`cat ~/.ruby-version`
 (
   cd
   for castle in `homesick list | perl -lna -e 'print $F[0]'`; do
-    homesick commit $castle "$1"
+    homesick commit $castle
     homesick push $castle
   done
 )
