@@ -27,5 +27,7 @@
   email = 
 [credential]
   helper = osxkeychain
+[commit]
+  template = ~/.git_template/commit.template
 [fetch]
   prune = true
