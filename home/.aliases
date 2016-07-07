@@ -142,7 +142,7 @@ alias scp="scp -l 8000 " # 8000Kbit/sで帯域制限
 # -u ... vimrc 指定 (vi互換になる)
 # -i ... viminfo 指定
 # -N ... vi互換解除
-alias vim="vim -u $USER_CONF_DIR/home/.vimrc -i $HOME/.viminfo -N"
+alias vim="vim -u $HOME/.vimrc -i $HOME/.viminfo -N"
 alias vim-plugin-install="vim +NeoBundleInstall +q"
 alias vim-plugin-update="vim +NeoBundleUpdate +q"
 
