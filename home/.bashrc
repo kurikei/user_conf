@@ -77,7 +77,7 @@ export LESS='-FRX'
 export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh'
 
 ##  PATH
-export PATH="$HOME_DIR/bin":$PATH
+export PATH="$HOME/bin":$PATH
 export PATH=/usr/local/bin:$PATH # homebrew 用に/usr/local/bin の優先度を上げる
 
 ## PERL (cpanm)
@@ -95,7 +95,7 @@ if [ -d $HOME/.shellrc/ ]; then
   done
 fi
 ## git コマンドでブランチ名などの補完が出来るようにする
-if [ -d  $USER_DIR/git/github.com/git/git ]; then
-  source $USER_DIR/git/github.com/git/git/contrib/completion/git-prompt.sh
-  source $USER_DIR/git/github.com/git/git/contrib/completion/git-completion.bash
+if [ -d  $HOME/git/github.com/git/git ]; then
+  source $HOME/git/github.com/git/git/contrib/completion/git-prompt.sh
+  source $HOME/git/github.com/git/git/contrib/completion/git-completion.bash
 fi
