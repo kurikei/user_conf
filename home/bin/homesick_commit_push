@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 export RBENV_VERSION=`cat ~/.ruby-version`
+export GIT_AUTHOR_NAME=kurikei
+export GIT_COMMITTER_NAME=kurikei
+export GIT_AUTHOR_EMAIL=kurikei@gmail.com
+export GIT_COMMITTER_EMAIL=kurikei@gmail.com
 (
   cd
   for castle in `homesick list | perl -lna -e 'print $F[0]'`; do
