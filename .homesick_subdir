@@ -1,3 +1,4 @@
 .shellrc
 .vim/userautoload
+.vim/
 bin
