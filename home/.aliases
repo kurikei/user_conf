@@ -16,6 +16,15 @@ cd() {
 	return $s
 }
 
+# cd2 X で $cd_X のディレクトに移動
+function cd2(){
+  direnv="\$cd_$1"
+  dir=`eval echo $direnv`
+  if [ $dir ]; then
+    cd $dir
+  fi
+}
+
 alias user_conf="cd ${_CWD}/../"
 
 # exec
