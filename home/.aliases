@@ -104,9 +104,6 @@ alias gs="git status"
 alias gsp="git status --porcelain "
 alias modifiedfile="gsp | perl -wln -e 'print \$2 if /^([ AMD]){2}(.+)/'"
 
-alias gkgs="gk && gs"
-alias gpush="git push && git log --max-count 1"
-
 # grep
 alias grep="grep --color"
 
