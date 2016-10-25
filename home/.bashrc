@@ -57,7 +57,7 @@ bind -x '"\C-r": peco-history'
 export EDITOR=$(which vim)
 
 ## 空白を履歴に追記しない、重複履歴を保存しない(ignoreboth = ignorespace + ignoredups)
-export HISTCONTROL=ignoreboth
+export HISTCONTROL=ignoreboth:erasedups
 
 ## 保存件数の設定
 export HISTSIZE=100000
