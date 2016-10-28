@@ -1,5 +1,4 @@
 # ~/.bash_profile など優先度の高い場所で
-# ・ USER_DIR の定義
 # ・ このファイルのsource
 # を行って下さい
 
