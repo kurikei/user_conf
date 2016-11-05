@@ -1,6 +1,6 @@
 #!/bin/sh
 # Crontab Usage:
-# 0 */3 * * * /path/to/this_file/auto_commit_push.sh > /dev/null
+# 0 */3 * * * $HOME/.homesick/repos/user_conf/auto_commit_push.sh > /dev/null
 GIT_DIR=$(cd $(dirname $0) && pwd)
 
 cd $GIT_DIR
