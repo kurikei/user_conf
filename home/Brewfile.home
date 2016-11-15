@@ -6,8 +6,32 @@ brew 'pcre'
 brew 'git'
 brew 'lua'
 brew 'mas'
+brew 'nkf'
 brew 'peco'
+brew 'rename'
 brew 'source-highlight'
 brew 'xz'
 brew 'the_silver_searcher'
 brew 'vim', args: ['with-lua']
+cask 'appcleaner'
+cask 'dropbox'
+cask 'firefox'
+cask 'google-chrome'
+cask 'google-japanese-ime'
+cask 'google-photos-backup'
+cask 'iterm2'
+cask 'sequel-pro'
+mas 'Kindle', id: 405399194
+mas 'Pushbullet', id: 948415170
+mas 'Evernote', id: 406056744
+mas '1Password', id: 443987910
+mas 'LanScan', id: 472226235
+mas 'Pocket', id: 568494494
+mas 'Deliveries', id: 924726344
+mas 'Wunderlist', id: 410628904
+mas 'Slack', id: 803453959
+mas 'Reeder', id: 880001334
+mas 'LINE', id: 539883307
+mas 'Todoist', id: 585829637
+mas 'Kobito', id: 896624060
+mas 'Simplenote', id: 692867256
