@@ -1,31 +1,44 @@
 tap 'caskroom/cask'
 tap 'homebrew/boneyard'
-tap 'homebrew/brewdler'
 tap 'homebrew/bundle'
 tap 'homebrew/core'
+tap 'homebrew/services'
 tap 'homebrew/versions'
 tap 'rcmdnk/file'
 brew 'boost'
 brew 'coreutils'
-brew 'freetype'
-brew 'git'
-brew 'homebrew/versions/mysql56'
-brew 'imagemagick'
-brew 'jpeg'
-brew 'libevent'
 brew 'libpng'
+brew 'freetype'
+brew 'pcre'
+brew 'git'
+brew 'jpeg'
+brew 'xz'
 brew 'libtiff'
 brew 'libtool'
-brew 'lua'
+brew 'imagemagick'
 brew 'openssl'
-brew 'pcre'
+brew 'libevent'
+brew 'lua'
+brew 'mas'
 brew 'peco'
-brew 'phantomjs'
-brew 'redis'
 brew 'source-highlight'
 brew 'the_silver_searcher'
 brew 'tmux'
 brew 'tree'
 brew 'vim', args: ['with-lua']
 brew 'wget'
-brew 'xz'
+cask 'appcleaner'
+cask 'clipmenu'
+cask 'google-japanese-ime'
+cask 'iterm2'
+cask 'kindle'
+mas 'Xcode', id: 497799835
+mas 'Evernote', id: 406056744
+mas '1Password', id: 443987910
+mas 'Wunderlist', id: 410628904
+mas 'Slack', id: 803453959
+mas 'Todoist', id: 585829637
+mas 'Deliveries', id: 924726344
+mas 'Reeder', id: 880001334
+mas 'LINE', id: 539883307
+mas 'Simplenote', id: 692867256
