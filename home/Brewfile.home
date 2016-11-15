@@ -1,21 +1,13 @@
 tap 'caskroom/cask'
 tap 'homebrew/bundle'
 tap 'homebrew/core'
+brew 'boost'
+brew 'pcre'
+brew 'git'
 brew 'lua'
 brew 'mas'
 brew 'peco'
+brew 'source-highlight'
+brew 'xz'
+brew 'the_silver_searcher'
 brew 'vim', args: ['with-lua']
-cask 'appcleaner'
-cask 'dropbox'
-cask 'google-chrome'
-cask 'google-japanese-ime'
-cask 'iterm2'
-mas 'Kindle', id: 405399194
-mas 'Pushbullet', id: 948415170
-mas 'Evernote', id: 406056744
-mas 'LanScan', id: 472226235
-mas 'Pocket', id: 568494494
-mas 'Deliveries', id: 924726344
-mas 'Wunderlist', id: 410628904
-mas 'Reeder', id: 880001334
-mas 'Kobito', id: 896624060
