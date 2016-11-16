@@ -5,6 +5,8 @@
 .atom/packages/
 .atom/storage/
 
+.idea
+
 *.swp
 
 # Created by https://www.gitignore.io/api/bower,compass,node,osx,perl,rails,ruby,sass,vim,yeoman
