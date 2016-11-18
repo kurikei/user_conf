@@ -4,6 +4,7 @@ export RBENV_VERSION=`cat ~/.ruby-version`
   cd
   for castle in `homesick list | perl -lna -e 'print $F[0]'`; do
     homesick pull $castle
+    homesick exec $castle 'git submodule update'
     homesick unlink $castle
     homesick symlink $castle
   done
