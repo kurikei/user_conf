@@ -79,10 +79,6 @@ export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh'
 export PATH="$HOME/bin":$PATH
 export PATH=/usr/local/bin:$PATH # homebrew 用に/usr/local/bin の優先度を上げる
 
-## PERL (cpanm)
-export PERL_CPANM_OPT="--local-lib=~/extlib"
-export PERL5LIB="$HOME/extlib/lib/perl5:$HOME/extlib/lib/perl5/i386-freebsd-64int:$PERL5LIB"
-
 ## PS1
 export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 
