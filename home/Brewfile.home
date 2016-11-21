@@ -23,6 +23,7 @@ cask 'google-japanese-ime'
 cask 'google-photos-backup'
 cask 'iterm2'
 cask 'sequel-pro'
+cask 'vlc'
 mas 'Kindle', id: 405399194
 mas 'Pushbullet', id: 948415170
 mas 'Evernote', id: 406056744

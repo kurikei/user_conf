@@ -1,0 +1,5 @@
+#!/bin/sh
+brew update
+mas upgrade
+/usr/local/bin/brew bundle dump --force --file=~/Brewfile.home
+sudo shutdown -h now
