@@ -15,6 +15,7 @@ brew 'source-highlight'
 brew 'xz'
 brew 'the_silver_searcher'
 brew 'vim', args: ['with-lua']
+brew 'youtube-dl'
 cask 'appcleaner'
 cask 'dropbox'
 cask 'firefox'
@@ -26,6 +27,7 @@ cask 'sequel-pro'
 cask 'vlc'
 mas 'Kindle', id: 405399194
 mas 'Pushbullet', id: 948415170
+mas 'Day One Classic', id: 422304217
 mas 'Evernote', id: 406056744
 mas '1Password', id: 443987910
 mas 'LanScan', id: 472226235
