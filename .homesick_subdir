@@ -3,3 +3,5 @@
 .vim/
 bin
 git/github.com/git
+git/github.com/memcached
+git/github.com/thoughtbot
