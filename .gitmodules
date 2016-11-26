@@ -4,9 +4,6 @@
 [submodule "home/git/github.com/git/git"]
 	path = home/git/github.com/git/git
 	url = https://github.com/git/git.git
-[submodule "home/.anyenv"]
-	path = home/.anyenv
-	url = https://github.com/riywo/anyenv
 [submodule "home/git/github.com/thoughtbot/dotfiles"]
 	path = home/git/github.com/thoughtbot/dotfiles
 	url = git@github.com:thoughtbot/dotfiles.git
