@@ -132,9 +132,6 @@ alias rails="bundle exec rails "
 # rake
 alias rake="bundle exec rake "
 
-# replace
-alias replace="${_BIN_DIR}/replace"
-
 # rspec
 alias rspec="bundle exec rspec "
 
@@ -143,6 +140,13 @@ alias rsync="rsync --bwlimit=1000 " # 1000Kbyte/sで帯域制限
 
 # scp
 alias scp="scp -l 8000 " # 8000Kbit/sで帯域制限
+
+# tail
+
+# tee
+alias temptee="tee /tmp/tee.`date +%Y%m%d`"
+alias tail_temptee="tail -F /tmp/tee.`date +%Y%m%d`"
+alias empty_temptee="cat /dev/null > /tmp/tee.`date +%Y%m%d`"
 
 # vim
 # -u ... vimrc 指定 (vi互換になる)
