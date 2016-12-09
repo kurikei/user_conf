@@ -73,7 +73,7 @@ export LESS='-FRX'
 ### -X or --no-init
 
 ## less コマンド時に自動で通すフィルター
-export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh'
+export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
 
 ##  PATH
 export PATH="$HOME/bin":$PATH
