@@ -22,14 +22,15 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My Bundles here:
 "NeoBundle 'Shougo/unite.vim'
-NeoBundle 'scrooloose/syntastic'
 "NeoBundle 'tpope/vim-surround'
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'scrooloose/syntastic'
 NeoBundle 'stephpy/vim-yaml'    " yaml のsyntax 高速化
 NeoBundle 'tComment'            " コメント入力補助
 NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'tsuyoshiwada/slack-memo-vim', {'depends': 'mattn/webapi-vim'}
 NeoBundle 'vim-perl/vim-perl'
 NeoBundle 'wakatime/vim-wakatime'
 
@@ -59,6 +60,10 @@ NeoBundleCheck
 let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
 let g:neocomplete#enable_smart_case = 1
+
+" slack-memo-vim
+nnoremap smp :SlackMemoPost<CR>
+nnoremap sml :SlackMemoList<CR>
 
 " syntastic
 set statusline+=%#warningmsg#
