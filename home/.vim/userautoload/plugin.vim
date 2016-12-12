@@ -1,59 +1,52 @@
-let g:neobundle_default_git_protocol='https'
-
-" Note: Skip initialization for vim-tiny or vim-small.
-if 0 | endif
-
-if has('vim_starting')
-  if &compatible
-    set nocompatible               " Be iMproved
-  endif
-
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+if &compatible
+  set nocompatible               " Be iMproved
 endif
 
 " Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
+set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
-" Let NeoBundle manage NeoBundle
 " Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
+call dein#begin('~/.vim/dein')
 
+" Let dein manage dein
+" Required:
+call dein#add('Shougo/dein.vim')
 
-" My Bundles here:
-"NeoBundle 'Shougo/unite.vim'
-"NeoBundle 'tpope/vim-surround'
-NeoBundle 'Shougo/neocomplete'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'stephpy/vim-yaml'    " yaml のsyntax 高速化
-NeoBundle 'tComment'            " コメント入力補助
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'tsuyoshiwada/slack-memo-vim', {'depends': 'mattn/webapi-vim'}
-NeoBundle 'vim-perl/vim-perl'
-NeoBundle 'wakatime/vim-wakatime'
+" Add or remove your plugins here:
+" call dein#add('Shougo/unite.vim')
+" call dein#add('tpope/vim-surround')
+call dein#add('Shougo/neocomplete')
+call dein#add('Shougo/neosnippet')
+call dein#add('Shougo/neosnippet-snippets')
+call dein#add('lambdalisue/vim-gista', { 'on_cmd': 'Gista' })
+call dein#add('mattn/webapi-vim')
+call dein#add('scrooloose/syntastic')
+call dein#add('stephpy/vim-yaml')
+call dein#add('tComment')
+call dein#add('thinca/vim-quickrun')
+call dein#add('tsuyoshiwada/slack-memo-vim', {'depends': 'mattn/webapi-vim'})
+call dein#add('vim-perl/vim-perl')
+call dein#add('wakatime/vim-wakatime')
+" colorscheme
+call dein#add('altercation/vim-colors-solarized')
+call dein#add('ciaranm/inkpot')
+call dein#add('desert256.vim')
+call dein#add('mrkn256.vim')
+call dein#add('tomasr/molokai')
+call dein#add('yuroyoro/yuroyoro256.vim')
 
-"colorscheme
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'ciaranm/inkpot'
-NeoBundle 'desert256.vim'
-NeoBundle 'mrkn256.vim'
-NeoBundle 'tomasr/molokai'
-NeoBundle 'yuroyoro/yuroyoro256.vim'
-" Refer to |:NeoBundle-examples|.
-" Note: You don't set neobundle setting in .gvimrc!
-
-call neobundle#end()
+" Required:
+call dein#end()
 
 " Required:
 filetype plugin indent on
+syntax enable
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+ call dein#install()
+endif
 
-" setting for each plugin
 " neocomplete
 " see https://github.com/Shougo/neocomplete.vim for additional settings
 " Use neocomplete.

@@ -1,5 +1,6 @@
 .shellrc
 .vim/userautoload
+.vim/dein/repos/github.com/Shougo/
 .vim/
 bin
 git/github.com/git

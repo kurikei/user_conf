@@ -1,8 +1,9 @@
 let $CWD = expand('<sfile>:p:h')
+
+runtime! userautoload/*
 if filereadable(expand('~/.local/.vimrc'))
   source ~/.local/.vimrc
 endif
-runtime! userautoload/*
 
 
 syntax on
