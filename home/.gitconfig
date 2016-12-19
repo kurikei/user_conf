@@ -26,12 +26,15 @@
 [core]
   editor = vim
   excludesfile = ~/.gitignore
-[user]
-  name = 
-  email = 
 [credential]
   helper = osxkeychain
 [commit]
   template = ~/.git_template/commit.template
 [fetch]
   prune = true
+[init]
+	templatedir = ~/.git_template
+[user]
+	useConfigOnly = true
+[include]
+	path = ~/.local/.gitconfig

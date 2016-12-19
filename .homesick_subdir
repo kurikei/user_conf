@@ -1,3 +1,6 @@
+.git_template/hooks/scripts
+.git_template/hooks
+.git_template/
 .shellrc
 .vim/userautoload
 .vim/dein/repos/github.com/Shougo/
