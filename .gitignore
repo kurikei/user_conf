@@ -1,4 +1,5 @@
 *.swp
+.atom
 
 home/.vim/bundle/
 !home/.vim/bundle/neobundle.vim
