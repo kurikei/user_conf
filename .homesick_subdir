@@ -1,10 +1,11 @@
-.git_template/hooks/scripts
-.git_template/hooks
 .git_template/
+.git_template/hooks
+.git_template/hooks/scripts
 .shellrc
-.vim/userautoload
-.vim/dein/repos/github.com/Shougo/
+.ssh/conf.d
 .vim/
+.vim/dein/repos/github.com/Shougo/
+.vim/userautoload
 bin
 git/github.com/git
 git/github.com/memcached

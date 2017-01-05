@@ -31,6 +31,7 @@ alias user_conf="cd ${_CWD}/../"
 alias renew="exec \$SHELL -l"
 
 # git
+alias git="cat ~/.ssh/conf.d/*.conf > ~/.ssh/config;git" # see: http://qiita.com/tumf/items/73e495e1274bc25acf5f
 ## git add
 alias ga="git add "
 alias gap="git add -p"
@@ -139,7 +140,11 @@ alias rspec="bundle exec rspec "
 alias rsync="rsync --bwlimit=1000 " # 1000Kbyte/sで帯域制限
 
 # scp
+alias scp="cat ~/.ssh/conf.d/*.conf > ~/.ssh/config;scp" # see: http://qiita.com/tumf/items/73e495e1274bc25acf5f
 alias scp="scp -l 8000 " # 8000Kbit/sで帯域制限
+
+# ssh
+alias ssh="cat ~/.ssh/conf.d/*.conf > ~/.ssh/config;ssh" # see: http://qiita.com/tumf/items/73e495e1274bc25acf5f
 
 # tee
 alias temptee="tee /tmp/tee.`date +%Y%m%d`"
