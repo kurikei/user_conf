@@ -28,12 +28,8 @@
   excludesfile = ~/.gitignore
 [credential]
   helper = osxkeychain
-[commit]
-  template = ~/.git_template/commit.template
 [fetch]
   prune = true
-[init]
-	templatedir = ~/.git_template
 [user]
 	useConfigOnly = true
 [include]
