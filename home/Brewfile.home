@@ -2,7 +2,14 @@ tap 'caskroom/cask'
 tap 'homebrew/bundle'
 tap 'homebrew/core'
 brew 'boost'
+brew 'libpng'
+brew 'freetype'
 brew 'git'
+brew 'jpeg'
+brew 'libtiff'
+brew 'libtool'
+brew 'xz'
+brew 'imagemagick'
 brew 'oniguruma'
 brew 'jq'
 brew 'lua'
@@ -12,7 +19,6 @@ brew 'pcre'
 brew 'peco'
 brew 'rename'
 brew 'source-highlight'
-brew 'xz'
 brew 'the_silver_searcher'
 brew 'vim', args: ['with-lua']
 brew 'youtube-dl'
@@ -27,16 +33,17 @@ cask 'sequel-pro'
 cask 'vlc'
 mas 'Kindle', id: 405399194
 mas 'Pushbullet', id: 948415170
+mas 'Twitter', id: 409789998
 mas 'Day One Classic', id: 422304217
 mas 'Evernote', id: 406056744
 mas '1Password', id: 443987910
 mas 'LanScan', id: 472226235
 mas 'Pocket', id: 568494494
 mas 'Deliveries', id: 924726344
-mas 'Wunderlist', id: 410628904
 mas 'Slack', id: 803453959
+mas 'Todoist', id: 585829637
 mas 'Reeder', id: 880001334
 mas 'LINE', id: 539883307
-mas 'Todoist', id: 585829637
+mas 'Wunderlist', id: 410628904
 mas 'Kobito', id: 896624060
 mas 'Simplenote', id: 692867256
