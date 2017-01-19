@@ -6,6 +6,17 @@ _BIN_DIR="${_CWD}/../bin"
 # apache
 alias grace="sudo apachectl graceful"
 
+function catline() {
+  if [ $2 ]; then
+    cond="if \$. >= $2";
+  fi
+
+  if [ $3 ]; then
+    cond="${cond} && \$. <= $3"
+  fi
+  perl -ln -e "print $cond " $1;
+}
+
 # cd
 cd() {
 	command cd "$@"
