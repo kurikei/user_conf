@@ -3,3 +3,6 @@
 [._]*.s[a-w][a-z]
 /.bundle
 /vendor/bundle
+
+# rails customize
+config/initializers/private_customize.rb
