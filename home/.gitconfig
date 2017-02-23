@@ -34,3 +34,5 @@
 	useConfigOnly = true
 [include]
 	path = ~/.local/.gitconfig
+[merge]
+	ff = false
