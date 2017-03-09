@@ -7,7 +7,9 @@
   di     = diff
   graph  = log --graph -C -M --pretty=format:'<%h> %ad [%an] %Cgreen%d%Creset %s' --all --date=short
   ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
+  mb     = !git merged-branch
   me     = !git config --get-regexp user
+  merged-branch = "!f() { git fetch --prune --quiet; git branch --merged | egrep -v '^\\*' | egrep -v 'master$' ; }; f"
   st     = status
   log-prs = "!f() { hash=`git log -n 1 --pretty='%H' $1`; git log --merges --reverse --ancestry-path ${hash}...master --grep 'Merge pull request #'; }; f"
   show-pr = "!f() { hash=`git log -n 1 --pretty='%H' $1`; git log --merges --oneline --reverse --ancestry-path ${hash}...master | grep 'Merge pull request #' | head -n 1; }; f"
