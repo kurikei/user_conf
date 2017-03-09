@@ -36,3 +36,5 @@
 	path = ~/.local/.gitconfig
 [merge]
 	ff = false
+[pull]
+	ff = only
