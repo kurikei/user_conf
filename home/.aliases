@@ -82,8 +82,11 @@ function git-local-present-remote-absent() {
   git fetch --prune --quiet
   comm -13 <(git-remote-origin-branch) <(git-local-not-current-branch)
 }
+
+### git merged branch : カレントブランチ に merge 済のローカルブランチ一覧を表示
+alias gmb='git fetch --prune --quiet && git branch --merged | perl -ln -e "next if /^\*/;next if /^\s+master$/;print"'
 ### git merged branch : 最新のorigin/master に merge 済のローカルブランチ一覧を表示
-alias gmb='git fetch --prune --quiet && git branch --merged `git log origin/master --format="%H" -n1` | perl -ln -e "next if /^\*/;next if /^\s+master$/;print"'
+# alias gmb='git fetch --prune --quiet && git branch --merged `git log origin/master --format="%H" -n1` | perl -ln -e "next if /^\*/;next if /^\s+master$/;print"'
 ### git pull-request branch : "pr/"から始まる非カレントブランチ (pull-requestのブランチ)
 alias gpb='git branch | grep "^  pr/"'
 # git diff
