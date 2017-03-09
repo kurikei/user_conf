@@ -7,3 +7,4 @@
 
 # rails customize
 config/initializers/private_customize.rb
+spec/support/private_customize.rb
