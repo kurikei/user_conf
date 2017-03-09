@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
 LOGFILE=/tmp/rspec_auto_bisect.log.`date +%Y%m%d`
+
 for i in `seq 2`;
 do
   for j in `seq 20`;
   do
     SEED=$RANDOM
     echo "[`date "+%Y-%m-%d %H:%M:%S"`] try ${i}-${j} (seed:$SEED)"
-    bundle exec rspec  --fail-fast --seed $SEED $* || break;
+    bundle exec rspec  --fail-fast --seed $SEED $* || (echo "[`date "+%Y-%m-%d %H:%M:%S"` ${i}-${j}]" >> $LOGFILE && bundle exec rspec --bisect --seed $SEED $* 2>&1 | tee -a $LOGFILE 2>&1 | slackcat --tee --channel random)
     echo "[`date "+%Y-%m-%d %H:%M:%S"`] success"
   done
-  echo "[`date "+%Y-%m-%d %H:%M:%S"` ${i}-${j}]" >> $LOGFILE
-  bundle exec rspec --bisect --seed $SEED $* 2>&1 | tee -a $LOGFILE 2>&1 | slackcat --tee --channel random
 done
