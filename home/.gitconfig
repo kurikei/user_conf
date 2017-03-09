@@ -38,6 +38,6 @@
 	ff = no
 	commit = no
 [pull]
-	ff = only
+	ff = yes
 [commit]
 	verbose = true # 2.9.0 or later
