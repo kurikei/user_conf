@@ -10,6 +10,11 @@ USER_CONF_DIR="${_CWD}/../"
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 
+# source
+for file in `find $HOME/.shellrc -type f -name ".*" -follow -and -not -name "*.swp"`; do
+  source $file;
+done
+
 # peco
 # http://qiita.com/tukiyo3/items/1548e50fe04d44b9a342
 ## scp時、「bind: 警告: 行編集が有効になっていません」対策
@@ -101,16 +106,3 @@ export PAGER=less
 
 ## PS1
 export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
-
-# source
-source $HOME/.aliases
-if [ -d $HOME/.shellrc/ ]; then
-  for file in $HOME/.shellrc/**/.bashrc; do
-    source $file
-  done
-fi
-## git コマンドでブランチ名などの補完が出来るようにする
-if [ -d  $HOME/git/github.com/git/git ]; then
-  source $HOME/git/github.com/git/git/contrib/completion/git-prompt.sh
-  source $HOME/git/github.com/git/git/contrib/completion/git-completion.bash
-fi

@@ -1,0 +1,13 @@
+[ -f $HOME/.aliases ] && source $HOME/.aliases
+
+## git コマンドでブランチ名などの補完が出来るようにする
+if [ -d  $HOME/git/github.com/git/git ]; then
+  source $HOME/git/github.com/git/git/contrib/completion/git-prompt.sh
+  source $HOME/git/github.com/git/git/contrib/completion/git-completion.bash
+fi
+
+# fzf.vim
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# iterm2 shell integration
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
