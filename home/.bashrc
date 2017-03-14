@@ -55,6 +55,8 @@ bind -x '"\C-r": peco-history'
 # export
 export EDITOR=$(which vim)
 
+export GREP_OPTIONS='--color=auto'
+
 ## 空白を履歴に追記しない、重複履歴を保存しない(ignoreboth = ignorespace + ignoredups)
 export HISTCONTROL=ignoreboth:erasedups
 
