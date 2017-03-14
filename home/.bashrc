@@ -86,6 +86,9 @@ export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
 export PATH="$HOME/bin":$PATH
 export PATH=/usr/local/bin:$PATH # homebrew 用に/usr/local/bin の優先度を上げる
 
+## PAGER
+export PAGER=less
+
 ## PS1
 export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 
