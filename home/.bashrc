@@ -67,10 +67,17 @@ export HISTTIMEFORMAT='%Y/%m/%d %T ' # YYYY/MM/DD hh:mm:ss
 export LANG=en_US.UTF-8
 
 ## less コマンド時に自動でつけるオプション
-export LESS='-FRX'
+export LESS='-F -g -i -M -R -S -W -X -z-4'
+### See Also: http://qiita.com/delphinus/items/b04752bb5b64e6cc4ea9
 ### -F or --quit-if-one-screen
+### -g or --hilite-search
+### -i or --ignore-case
+### -M or --LONG-PROMPT
 ### -R or --RAW-CONTROL-CHARS
+### -S or --chop-long-lines
+### -W or --HILITE-UNREAD
 ### -X or --no-init
+### -[z]n or --window=n: Changes the default scrolling window size to n lines.  The default is one screenful.
 
 ## less コマンド時に自動で通すフィルター
 export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
