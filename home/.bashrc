@@ -66,7 +66,7 @@ export HISTTIMEFORMAT='%Y/%m/%d %T ' # YYYY/MM/DD hh:mm:ss
 
 export LANG=en_US.UTF-8
 
-## less コマンド時に自動でつけるオプション
+## LESS and related environment variable
 export LESS='-F -g -i -M -R -S -W -X -z-4'
 ### See Also: http://qiita.com/delphinus/items/b04752bb5b64e6cc4ea9
 ### -F or --quit-if-one-screen
@@ -78,9 +78,17 @@ export LESS='-F -g -i -M -R -S -W -X -z-4'
 ### -W or --HILITE-UNREAD
 ### -X or --no-init
 ### -[z]n or --window=n: Changes the default scrolling window size to n lines.  The default is one screenful.
-
-## less コマンド時に自動で通すフィルター
+# if which lesspipe.sh > /dev/null; then
+#   export LESSOPEN='| /usr/bin/env lesspipe.sh %s 2>&-'
+# fi
 export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
+export LESS_TERMCAP_mb=$'\E[01;31m'      # Begins blinking.
+export LESS_TERMCAP_md=$'\E[01;31m'      # Begins bold.
+export LESS_TERMCAP_me=$'\E[0m'          # Ends mode.
+export LESS_TERMCAP_se=$'\E[0m'          # Ends standout-mode.
+export LESS_TERMCAP_so=$'\E[00;47;30m'   # Begins standout-mode.
+export LESS_TERMCAP_ue=$'\E[0m'          # Ends underline.
+export LESS_TERMCAP_us=$'\E[01;32m'      # Begins underline.
 
 ##  PATH
 export PATH="$HOME/bin":$PATH
