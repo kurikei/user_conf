@@ -16,6 +16,7 @@
   log-prs = "!f() { hash=`git log -n 1 --pretty='%H' $1`; git log --merges --reverse --ancestry-path ${hash}...master --grep 'Merge pull request #'; }; f"
   show-pr = "!f() { hash=`git log -n 1 --pretty='%H' $1`; git log --merges --oneline --reverse --ancestry-path ${hash}...master | grep 'Merge pull request #' | head -n 1; }; f"
 	open-pr = "!f() { hash=`git log -n 1 --pretty='%H' $1`; hub browse -- `git log --merges --oneline --reverse --ancestry-path ${hash}...master | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%pull/%'`; }; f"
+  pr-branches = "!git branch --list 'pr/*' | egrep -vE '^\\*'"
 [color]
   branch      = auto
   diff        = auto
