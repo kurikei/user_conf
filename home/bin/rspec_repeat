@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+for i in `seq 10`;
+do
+  echo "[`date "+%Y-%m-%d %H:%M:%S"`] try $i times"
+  bundle exec spring stop
+  bundle exec rspec  --fail-fast $* || continue;
+  echo "[`date "+%Y-%m-%d %H:%M:%S"`] success"
+done
