@@ -184,13 +184,13 @@ function vimc(){
   fi
 }
 
-# perl
+# perl - with carton
 function uriescape(){
-  perl -MURI::Escape -e "print uri_escape(q{$1}) . \"\n\" "
+  carton exec perl -MURI::Escape -e "print uri_escape(q{$1}) . \"\n\" "
 }
 
 function decode_base64(){
-  perl -MMIME::Base64 -e "print decode_base64(q{$1})";
+  carton exec perl -MMIME::Base64 -e "print decode_base64(q{$1})";
 }
 
 # 非推奨になったネットワークコマンド養成ギプス

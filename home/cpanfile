@@ -1,6 +1,7 @@
 requires 'Class::Accessor::Lite';
 requires 'List::AllUtils';
 requires 'Path::Tiny';
+requires 'URI::Escape';
 
 on 'develop' => sub {
   requires 'DDP';
