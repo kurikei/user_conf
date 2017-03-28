@@ -125,6 +125,10 @@ alias grep="grep --color"
 # history
 alias hisgrep="history | grep "
 
+# iconv
+alias s2u="iconv -f sjis -t utf8 "
+alias u2s="iconv -f utf8 -t sjis "
+
 # ls
 alias la="ls -a "
 alias ll="ls -la "
