@@ -47,6 +47,10 @@ alias git="cat ~/.ssh/conf.d/*.conf > ~/.ssh/config;git" # see: http://qiita.com
 alias ga="git add "
 alias gap="git add -p"
 alias gau="git add -u"
+function set_general_git_config() {
+  git config --local user.email kurikei@gmail.com
+  git config --local user.name kurikei
+}
 
 ### 何かして通ったら git add
 ##### perl -c && git add :
