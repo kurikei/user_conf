@@ -1,0 +1,17 @@
+{
+  "name": "kurikei",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bower": "1.8.0",
+    "n": "2.1.6",
+    "react-native-cli": "2.0.1",
+    "yarn": "0.21.3"
+  }
+}
