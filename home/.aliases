@@ -175,6 +175,28 @@ alias ssh="cat ~/.ssh/conf.d/*.conf > ~/.ssh/config;ssh" # see: http://qiita.com
 alias temptee="tee /tmp/tee.`date +%Y%m%d`"
 alias tail_temptee="tail -F /tmp/tee.`date +%Y%m%d`"
 alias empty_temptee="cat /dev/null > /tmp/tee.`date +%Y%m%d`"
+function create_tmp() {
+  filetype=$1;
+
+  if [ $filetype = 'sh' ]; then
+    file_ext="sh"
+    shebang="#!/bin/sh"
+  elif [ $filetype = 'ruby' ]; then
+    file_ext="rb"
+    shebang="#! /usr/bin/env ruby"
+  else
+    echo "cannot detect file ${filetype}"
+    return
+  fi
+
+  filepath="/tmp/`date +\%Y\%m\%d`.${file_ext}"
+  if [ -e $filepath ]; then
+    vim $filepath
+  else
+    echo $shebang > $filepath
+    vim $filepath
+  fi
+}
 
 # vim
 # -u ... vimrc 指定 (vi互換になる)
