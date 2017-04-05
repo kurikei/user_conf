@@ -42,7 +42,17 @@ set visualbell t_vb=
 highlight CursorLine term=reverse cterm=reverse
 colorscheme inkpot
 
-"" autocmd
+" =============================================================================
+" :au[tocmd] [group] {event} {pat} [nested] {cmd}
+"
+"   Add {cmd} to the list of commands that Vim will
+"   execute automatically on {event} for a file matching
+"   {pat} autocmd-patterns.
+"   Vim always adds the {cmd} after existing autocommands,
+"   so that the autocommands execute in the order in which
+"   they were given.  See autocmd-nested for [nested].
+"
+" =============================================================================
 autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 " autocmd BufNewFile,BufRead *.tx  set filetype=tt2html " xslate
 
@@ -60,7 +70,9 @@ function! RSpecQuickrun()
 endfunction
 autocmd BufReadPost *_spec.rb call RSpecQuickrun()
 
-"" nnoremap - ノーマルモード時のキーバインド
+" =============================================================================
+" nnoremap, nn - ノーマルモード時のキーバインド
+" =============================================================================
 nnoremap <C-c> :SyntasticCheck<Enter>
 nnoremap <C-c><C-o> /[<=>]\{7\}<Enter>
 nnoremap <C-p> :set number! list! paste!<Enter>
@@ -88,7 +100,15 @@ nnoremap <silent> g-lo    :! git log % <Enter>
 nnoremap <silent> g-lo-p  :! git log -p % <Enter>
 
 " =============================================================================
-" commands
+" :com[mand]
+"
+"   List all user-defined commands.  When listing commands,
+"   the characters in the first two columns are
+"       !   Command has the -bang attribute
+"       "   Command has the -register attribute
+"       b   Command is local to current buffer
+"   (see below for details on attributes)
+"
 " =============================================================================
 " Rename <newfilename> でリネーム
 " http://vim-jp.org/vim-users-jp/2009/05/27/Hack-17.html
