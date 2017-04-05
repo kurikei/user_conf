@@ -17,6 +17,9 @@ function catline() {
   perl -ln -e "print $cond " $1;
 }
 
+# bundle
+alias be="bundle exec "
+
 # cd
 cd() {
 	command cd "$@"
