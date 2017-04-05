@@ -42,14 +42,23 @@ set visualbell t_vb=
 highlight CursorLine term=reverse cterm=reverse
 colorscheme inkpot
 
-"特定の拡張子を持つファイル作成時にテンプレートを挿入
-autocmd BufNewFile,BufRead *.conf set filetype=perl
+"" autocmd
+autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+" autocmd BufNewFile,BufRead *.tx  set filetype=tt2html " xslate
+
+" q で quickfix を閉じる(for vim-quickrun)
+autocmd FileType qf nnoremap <silent><buffer>q :quit<CR>
 
 "ファイルを開いたときに以前編集していたところに移動
 autocmd BufReadPost *
 	\ if line("'\"") > 1 && line("'\"") <= line("$") |
 	\   exe "normal! g`\"" |
 	\ endif
+
+function! RSpecQuickrun()
+  let b:quickrun_config = {'type' : 'rspec/bundle'}
+endfunction
+autocmd BufReadPost *_spec.rb call RSpecQuickrun()
 
 "" nnoremap - ノーマルモード時のキーバインド
 nnoremap <C-c> :SyntasticCheck<Enter>
@@ -84,22 +93,3 @@ nnoremap <silent> g-lo-p  :! git log -p % <Enter>
 " Rename <newfilename> でリネーム
 " http://vim-jp.org/vim-users-jp/2009/05/27/Hack-17.html
 command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
-
-" =============================================================================
-" filetype
-" =============================================================================
-autocmd BufNewFile,BufRead *.sub set filetype=html
-autocmd BufNewFile,BufRead *.inc set filetype=tt2html
-autocmd BufNewFile,BufRead *.tx set filetype=tt2html
-"autocmd AutoGroup BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
-
-
-
-" vim-quickrun
-"let g:quickrun_config={'*': {'split': ''}}
-" let g:quickrun_config = {
-" \   "_" : {
-" \       "outputter/buffer/split" : ":botright",
-" \       "outputter/buffer/close_on_empty" : 1
-" \   },
-" \}
