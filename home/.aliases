@@ -180,22 +180,15 @@ function create_tmp() {
 
   if [ $filetype = 'sh' ]; then
     file_ext="sh"
-    shebang="#!/bin/sh"
   elif [ $filetype = 'ruby' ]; then
     file_ext="rb"
-    shebang="#! /usr/bin/env ruby"
   else
     echo "cannot detect file ${filetype}"
     return
   fi
 
   filepath="/tmp/`date +\%Y\%m\%d`.${file_ext}"
-  if [ -e $filepath ]; then
-    vim $filepath
-  else
-    echo $shebang > $filepath
-    vim $filepath
-  fi
+  vim $filepath
 }
 
 # vim
