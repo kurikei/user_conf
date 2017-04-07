@@ -6,7 +6,7 @@ export GREP_OPTIONS='--color=auto'
 export HISTCONTROL=ignoreboth:erasedups
 
 ## 保存件数の設定
-export HISTSIZE=5000
+export HISTSIZE=10000
 
 ## ヒストリに時刻を導入する
 export HISTTIMEFORMAT='%Y/%m/%d %T ' # YYYY/MM/DD hh:mm:ss
@@ -41,7 +41,7 @@ export LESS_TERMCAP_us=$'\E[01;32m'      # Begins underline.
 export PATH="$HOME/bin":$PATH
 export PATH=/usr/local/bin:$PATH # homebrew 用に/usr/local/bin の優先度を上げる
 
-export PROMPT_COMMAND='history -a; history -r'
+# export PROMPT_COMMAND='history -a; history -r'
 
 ## PAGER
 export PAGER=less

@@ -1,13 +1,28 @@
 #!/usr/bin/env bash
 LOGFILE=/tmp/rspec_auto_bisect.log.`date +%Y%m%d`
+SET_COUNT=2
+LOOP_COUNT=5
 
-for i in `seq 2`;
+while getopts l:s: OPT
 do
-  for j in `seq 5`;
+    case $OPT in
+        l)  LOOP_COUNT=$OPTARG
+            ;;
+        s)  SET_COUNT=$OPTARG
+            ;;
+    esac
+done
+
+shift $((OPTIND - 1))
+echo "${LOOP_COUNT} times x ${SET_COUNT} sets"
+
+for i in `seq ${SET_COUNT}`;
+do
+  for j in `seq ${LOOP_COUNT}`;
   do
     SEED=$RANDOM
     echo "[`date "+%Y-%m-%d %H:%M:%S"`] try ${i}-${j} (seed:$SEED)"
-    bundle exec rspec  --fail-fast --seed $SEED $* || (echo "[`date "+%Y-%m-%d %H:%M:%S"` ${i}-${j}]" >> $LOGFILE && bundle exec rspec --bisect --seed $SEED $* 2>&1 | tee -a $LOGFILE 2>&1 | slackcat --tee --channel random)
+    bundle exec rspec  --fail-fast --seed $SEED $* || (echo "[`date "+%Y-%m-%d %H:%M:%S"` ${i}-${j}]" >> $LOGFILE && bundle exec rspec --bisect --seed $SEED $* 2>&1 | tee -a $LOGFILE 2>&1 | slackcat --tee --channel ci_notification)
     echo "[`date "+%Y-%m-%d %H:%M:%S"`] success"
   done
 done
