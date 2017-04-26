@@ -28,8 +28,8 @@
   interactive = auto
   status      = auto
   ui = auto
-[push]
-  default = simple
+[commit]
+  verbose = true # 2.9.0 or later
 [core]
   editor = vim
   excludesfile = ~/.gitignore
@@ -37,14 +37,14 @@
   helper = osxkeychain
 [fetch]
   prune = true
-[user]
-	useConfigOnly = true
 [include]
-	path = ~/.local/.gitconfig
+  path = ~/.local/.gitconfig
 [merge]
-	ff = no
-	commit = no
+  ff = no
+  commit = no
 [pull]
-	ff = yes
-[commit]
-	verbose = true # 2.9.0 or later
+  ff = yes
+[push]
+  default = simple
+[user]
+  useConfigOnly = true
