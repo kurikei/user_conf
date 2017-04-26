@@ -8,12 +8,17 @@ find_this="$1"
 shift
 replace_with="$1"
 shift
-echo "find $find_this"
-echo "replace with $replace_with"
+echo "replace $find_this with $replace_with"
 
-items=$(ag -l --nocolor -Q "$find_this" "$@")
+items=$(ag -l --nocolor "$find_this" "$@")
 temp="${TMPDIR:-/tmp}/replace_temp_file.$$"
 IFS=$'\n'
 for item in $items; do
-  sed "s/$find_this/$replace_with/g" "$item" > "$temp" && mv "$temp" "$item"
+  echo "find $item"
+
+  perl -pn -e "s#$find_this#$replace_with#g" "$item" > "$temp" && mv "$temp" "$item"
+
+  if [ $? -eq 0 ]; then
+    echo "replaced $item"
+  fi
 done
