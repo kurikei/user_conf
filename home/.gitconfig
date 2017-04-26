@@ -11,12 +11,16 @@
   st     = status
 [alias] # functional
   checkout-pullrequest = !sh -c 'git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1' -
+  delete-latest-stash = "stash drop stash@{0}"
+  delete-pr-branches = "!git pr-branches | xargs git branch -D"
   ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
   merged-branch = "!f() { git fetch --prune --quiet; git branch --merged | egrep -v '^\\*' | egrep -v 'master$' ; }; f"
   log-prs = "!f() { hash=`git log -n 1 --pretty='%H' $1`; git log --merges --reverse --ancestry-path ${hash}...master --grep 'Merge pull request #'; }; f"
   show-pr = "!f() { hash=`git log -n 1 --pretty='%H' $1`; git log --merges --oneline --reverse --ancestry-path ${hash}...master | grep 'Merge pull request #' | head -n 1; }; f"
 	open-pr = "!f() { hash=`git log -n 1 --pretty='%H' $1`; hub browse -- `git log --merges --oneline --reverse --ancestry-path ${hash}...master | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%pull/%'`; }; f"
   pr-branches = "!git branch --list 'pr/*' | egrep -vE '^\\*'"
+  show-latest-stash = "show stash@{0}"
+  temporary-branches = "!git branch --list 'pr/*' --list 'hotfix/*' | egrep -vE '^\\*'"
 [color]
   branch      = auto
   diff        = auto
