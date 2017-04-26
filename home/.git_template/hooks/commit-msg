@@ -1,0 +1,19 @@
+#!/bin/sh
+set -eu
+
+git_root=`git rev-parse --show-toplevel 2> /dev/null`;
+basename=${0##*/}
+:
+if [ "$git_root" == "" ]; then
+  echo This does not appear to be a git repo.
+  exit 1
+fi
+
+for hook in `find ~/.homesick/repos/user_conf/home/.git_template/hooks/scripts/$basename/ -maxdepth 1 -type f`
+do
+  $hook $1
+  if [ $? != 0 ]; then
+    exit 1;
+  fi
+done
+

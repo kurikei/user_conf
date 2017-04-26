@@ -1,0 +1,66 @@
+#!/bin/sh
+
+# definition of function
+function ask_yesno() {
+  read -p "$1 ([y]es or [N]o): "
+  case $(echo $REPLY | tr '[A-Z]' '[a-z]') in
+    y|yes) echo "yes" ;;
+    *)     echo "no" ;;
+  esac
+}
+
+# main process
+set -eu
+
+git_root=`git rev-parse --show-toplevel 2> /dev/null`
+
+if [ "$git_root" == "" ]; then
+  echo This does not appear to be a git repo.
+  exit 1
+fi
+
+# NOTE: dirname/readlink is part of coreutils
+conf_dir=$(cd $(dirname `readlink $0`)/../ && pwd)
+hook_types='commit-msg post-checkout post-merge post-rewrite pre-commit pre-push'
+for hook_type in $hook_types;
+do
+  # dispatch hook
+  hook_path="$git_root/.git/hooks/${hook_type}"
+  echo "start install $hook_type (in: $hook_path)"
+
+  if [ -f $hook_path ] || [ -L $hook_path ]; then
+    if [[ "yes" == $(ask_yesno "There is already a ${hook_type} hook installed. Can I delete it?") ]]; then
+      echo "delete ${hook_path}"
+      rm $hook_path
+
+      echo "copy $hook_path"
+      cp $conf_dir/.git_template/hooks/$hook_type $hook_path
+      chmod +x $hook_path
+    else
+      echo "skip ${hook_type} hook"
+    fi
+  else
+    echo "copy $hook_path"
+    cp $conf_dir/.git_template/hooks/$hook_type $git_root/.git/hooks/$hook_type
+    chmod +x $hook_path
+  fi
+done
+
+# actual hooks
+scripts_dir="$git_root/.git/hooks/scripts"
+if [ -d $scripts_dir ] || [ -L $scripts_dir ]; then
+  if [[ "yes" == $(ask_yesno "There is already installed scripts dir. Can I delete it?") ]]; then
+    echo "delete ${scripts_dir}"
+    rm -r $scripts_dir
+
+    echo "copy $scripts_dir"
+    cp -r $conf_dir/.git_template/hooks/scripts $scripts_dir
+    chmod -R +x $scripts_dir
+  else
+    echo "skip ${hook_type} hook"
+  fi
+else
+  echo "copy $scripts_dir"
+  cp -r $conf_dir/.git_template/hooks/scripts $scripts_dir
+  chmod -R +x $scripts_dir
+fi
