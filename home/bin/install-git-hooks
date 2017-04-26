@@ -45,22 +45,3 @@ do
     chmod +x $hook_path
   fi
 done
-
-# actual hooks
-scripts_dir="$git_root/.git/hooks/scripts"
-if [ -d $scripts_dir ] || [ -L $scripts_dir ]; then
-  if [[ "yes" == $(ask_yesno "There is already installed scripts dir. Can I delete it?") ]]; then
-    echo "delete ${scripts_dir}"
-    rm -r $scripts_dir
-
-    echo "copy $scripts_dir"
-    cp -r $conf_dir/.git_template/hooks/scripts $scripts_dir
-    chmod -R +x $scripts_dir
-  else
-    echo "skip ${hook_type} hook"
-  fi
-else
-  echo "copy $scripts_dir"
-  cp -r $conf_dir/.git_template/hooks/scripts $scripts_dir
-  chmod -R +x $scripts_dir
-fi
