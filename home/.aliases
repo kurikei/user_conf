@@ -145,6 +145,19 @@ alias ls='ls -F';
 alias lse="lv -Is -Oej"
 alias lue="lv -Iu8 -Oej"
 
+# mysql
+function from_unixtime(){
+  mysql -NBe "select from_unixtime($1)"
+}
+
+function unixtime(){
+  mysql -NBe 'select unix_timestamp()'
+}
+
+function unix_timestamp(){
+  mysql -NBe "select unix_timestamp('$1')"
+}
+
 # rbenv
 # http://stackoverflow.com/questions/30179484/install-latest-stable-version-of-ruby-using-rbenv/301798499
 alias latest_stable_ruby_version='rbenv install -l | grep -v - | tail -1'
