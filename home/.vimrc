@@ -8,6 +8,7 @@ endif
 
 syntax on
 
+" OPTION DESCRIPTION - http://vimdoc.sourceforge.net/htmldoc/quickref.html#option-list
 set ambiwidth=double
 set autoindent " take indent for new line from previous line
 set autoread " autom. read file when changed outside of Vim
@@ -16,6 +17,7 @@ set autoread " autom. read file when changed outside of Vim
 set backupskip=/tmp/*,/private/tmp/* " no backup for files that match these patterns
 set backspace=2 " how backspace works at start of line
 set cursorline " highlight the screen line of the cursor
+set directory=$HOME/.vim/swapfiles " list of directory names for the swap file
 set encoding=utf8
 set expandtab " use spaces when <Tab> is inserted
 set fileencodings=utf8,euc-jp,iso-2022-jp-3,iso-2022-jp,euc-jisx0213,ucs-bom,euc-jp,eucjp-ms,cp932,sjis
