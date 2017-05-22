@@ -3,3 +3,4 @@
 
 home/.vim/bundle/
 !home/.vim/bundle/neobundle.vim
+home/.vim/swapfiles
