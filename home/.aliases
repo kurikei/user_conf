@@ -44,6 +44,11 @@ alias user_conf="cd ${_CWD}/../"
 # exec
 alias renew="exec \$SHELL -l"
 
+# find
+function delete-dead-symlinks() {
+  find -L $1 -type l -exec rm -i {} +
+}
+
 # git
 alias git="cat ~/.ssh/conf.d/*.conf > ~/.ssh/config;git" # see: http://qiita.com/tumf/items/73e495e1274bc25acf5f
 ## git add
