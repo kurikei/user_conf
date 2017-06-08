@@ -71,6 +71,7 @@ DEPENDENCIES
   docker-sync
   homesick
   rails-erd
+  rubocop
   rubocop-git
 
 BUNDLED WITH
