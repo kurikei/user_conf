@@ -196,13 +196,12 @@ alias empty_temptee="cat /dev/null > /tmp/tee.`date +%Y%m%d`"
 function create_tmp() {
   filetype=$1;
 
-  if [ $filetype = 'sh' ]; then
+  if [ $filetype = 'shell' ]; then
     file_ext="sh"
   elif [ $filetype = 'ruby' ]; then
     file_ext="rb"
   else
-    echo "cannot detect file ${filetype}"
-    return
+    file_ext=$filetype
   fi
 
   filepath="/tmp/`date +\%Y\%m\%d`.${file_ext}"
