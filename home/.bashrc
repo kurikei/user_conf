@@ -24,17 +24,19 @@ fi
 
 # http://qiita.com/yungsang/items/09890a06d204bf398eea
 peco-history() {
-  local NUM=$(history | wc -l)
-  local FIRST=$((-1*(NUM-1)))
+  local CMD=$(fc -l 1 | cut -f2 | uniq | peco | head -n 1)
+  # local NUM=$(history | wc -l)
+  # local FIRST=$((-1*(NUM-1)))
+  #
+  # if [ $FIRST -eq 0 ] ; then
+  #   # Remove the last entry, "peco-history"
+  #   history -d $((HISTCMD-1))
+  #   echo "No history" >&2
+  #   return
+  # fi
 
-  if [ $FIRST -eq 0 ] ; then
-    # Remove the last entry, "peco-history"
-    history -d $((HISTCMD-1))
-    echo "No history" >&2
-    return
-  fi
-
-  local CMD=$(fc -l $FIRST | sort -k 2 -k 1nr | uniq -f 1 | sort -nr | sed -E 's/^[0-9]+[[:blank:]]+//' | peco | head -n 1)
+  # local CMD=$(fc -l $FIRST | sort -k 2 -k 1nr | uniq -f 1 | sort -nr | sed -E 's/^[0-9]+[[:blank:]]+//' | peco | head -n 1)
+  # local CMD=$(fc -l $FIRST | cut -f2 | uniq | peco | head -n 1)
 
   if [ -n "$CMD" ] ; then
     # Replace the last entry, "peco-history", with $CMD
@@ -55,4 +57,4 @@ peco-history() {
 }
 
 # bind
-bind -x '"\C-r": peco-history'
+bind -x '"\C-h": peco-history'
