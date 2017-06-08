@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+SCRIPT_NAME=${0##*/}
+LOGDIR=/tmp
+LOGFILE=${LOGDIR}/${SCRIPT_NAME}.log.`date +%Y%m%d`
+
+repo_name=$(basename $(git rev-parse --show-toplevel))
+command="[${repo_name}] rspec ${*}"
+
+echo $command >> $LOGFILE
+bundle exec rspec --format progress $* | tee -a $LOGFILE 2>&1 | slackcat --tee --channel times --comment "$command" --filetype text
