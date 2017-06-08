@@ -1,9 +1,9 @@
 .envrc
 .idea
-
-[._]*.s[a-w][a-z]
+.rubocop_todo.yml
 /.bundle
 /vendor/bundle
+[._]*.s[a-w][a-z]
 
 # rails customize
 config/initializers/private_customize.rb
