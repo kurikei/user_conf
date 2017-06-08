@@ -1,6 +1,4 @@
 #!/bin/sh
-set -eu
-
 git_root=`git rev-parse --show-toplevel 2> /dev/null`;
 
 if [ "$git_root" == "" ]; then
