@@ -1,1 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
+SCRIPT_NAME=${0##*/}
+LOGDIR=/tmp
+LOGFILE=${LOGDIR}/${SCRIPT_NAME}.log.`date +%Y%m%d`
