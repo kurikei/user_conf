@@ -18,7 +18,7 @@ function catline() {
 }
 
 # bundle
-alias be="bundle exec "
+alias be="bundle exec spring stop && bundle exec "
 
 # cd
 cd() {
