@@ -1,0 +1,14 @@
+inherit_from: .rubocop_todo.yml
+
+LineLength:
+  Max: 120
+
+Metrics/BlockLength:
+  ExcludedMethods:
+    - context
+    - describe
+
+Style/Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
