@@ -6,10 +6,10 @@ export GREP_OPTIONS='--color=auto'
 export HISTCONTROL=ignoreboth:erasedups
 
 ## 保存件数の設定
-export HISTSIZE=10000
+export HISTSIZE=100000
 
 ## ヒストリに時刻を導入する
-export HISTTIMEFORMAT='%Y/%m/%d %T ' # YYYY/MM/DD hh:mm:ss
+#export HISTTIMEFORMAT='%Y/%m/%d %T ' # YYYY/MM/DD hh:mm:ss
 
 export LANG=en_US.UTF-8
 
