@@ -13,17 +13,18 @@ call dein#begin('~/.vim/dein')
 call dein#add('Shougo/dein.vim')
 
 " Add or remove your plugins here:
-" call dein#add('Shougo/unite.vim')
-" call dein#add('tpope/vim-surround')
+call dein#add('Shougo/unite.vim')
+"call dein#add('tpope/vim-surround')
 call dein#add('Shougo/neocomplete')
 call dein#add('Shougo/neosnippet')
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
 call dein#add('bronson/vim-trailing-whitespace')
-call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
-call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
+"call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
+"call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 call dein#add('lambdalisue/vim-gista', { 'on_cmd': 'Gista' })
 call dein#add('mattn/webapi-vim')
+"call dein#add('plasticboy/vim-markdown')
 call dein#add('scrooloose/syntastic')
 call dein#add('stephpy/vim-yaml')
 call dein#add('tComment')
@@ -68,6 +69,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 set statusline=[%F%r%h%w]\[%{&fenc==''?&enc:&fenc}]\[POS=%04l,%04v][%p%%]\[LEN=%L]
 
+let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -85,9 +87,14 @@ let g:quickrun_config = {
 \   'outputter/buffer/split'  : ':rightbelow 8sp',
 \   'outputter/buffer/close_on_empty' : 1,
 \ },
-\ "ruby.bundle": {
-\   'command': 'ruby',
-\   'cmdopt': 'bundle exec',
-\   'exec': '%o %c %s',
+\ "ruby.rspec" : {
+\   "command": "rspec",
+\   "cmdopt": "-c -fd --tty",
+\   "exec": "bundle exec %c"
 \ },
+\ "ruby.rspec_line" : {
+\   "command": "rspec",
+\   "exec": "%c %s:%{line('.')} %o" ,
+\   "cmdopt": '-c -fd --tty'
+\ }
 \}

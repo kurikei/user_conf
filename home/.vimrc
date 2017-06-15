@@ -55,7 +55,7 @@ colorscheme inkpot
 "   they were given.  See autocmd-nested for [nested].
 "
 " =============================================================================
-autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+" autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 autocmd BufNewFile *.rb 0r $HOME/.vim/template/ruby.txt
 autocmd BufNewFile *.sh 0r $HOME/.vim/template/sh.txt
 " autocmd BufNewFile,BufRead *.tx  set filetype=tt2html " xslate
@@ -69,10 +69,7 @@ autocmd BufReadPost *
 	\   exe "normal! g`\"" |
 	\ endif
 
-function! RSpecQuickrun()
-  let b:quickrun_config = {'type' : 'rspec/bundle'}
-endfunction
-autocmd BufReadPost *_spec.rb call RSpecQuickrun()
+autocmd BufNewFile,BufRead *_spec.rb set filetype=ruby.rspec
 
 " =============================================================================
 " nnoremap, nn - ノーマルモード時のキーバインド
@@ -80,7 +77,6 @@ autocmd BufReadPost *_spec.rb call RSpecQuickrun()
 nnoremap <C-c> :SyntasticCheck<Enter>
 nnoremap <C-c><C-o> /[<=>]\{7\}<Enter>
 nnoremap <C-p> :set number! list! paste!<Enter>
-nnoremap <C-q> :call QRunRspecCurrentLine()<Enter>
 nnoremap <C-t> :SyntasticToggleMode<Enter>
 " 外部コマンド
 " - <silent> から始める
