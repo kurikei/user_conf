@@ -53,4 +53,8 @@
 [user]
   useConfigOnly = true
 [pager]
-	diff = less -r
+	diff = diff-highlight | less
+	log = diff-highlight | less
+	show = diff-highlight | less
+[interactive]
+	diffFilter = diff-highlight
