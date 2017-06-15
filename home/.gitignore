@@ -1,4 +1,6 @@
 .envrc
+.erdconfig
+.local
 .idea
 .rubocop_todo.yml
 /.bundle
