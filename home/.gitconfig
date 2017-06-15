@@ -52,3 +52,5 @@
   default = simple
 [user]
   useConfigOnly = true
+[pager]
+	diff = less -r
