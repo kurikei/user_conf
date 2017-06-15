@@ -7,6 +7,7 @@ Metrics/BlockLength:
   ExcludedMethods:
     - context
     - describe
+    - feature
 
 Style/Documentation:
   Enabled: false
