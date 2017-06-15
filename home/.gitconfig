@@ -13,6 +13,7 @@
   checkout-pullrequest = !sh -c 'git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1' -
   checkout-tag = !sh -c 'git fetch && git checkout -b tag/$1 refs/tags/$1' -
   checkout-latest-tag = "!f() { git fetch --quiet; git checkout-tag `git latest-tag`;}; f"
+  commish = "!f() { git commit -au -m \"$1\" && git pull && git push; }; f"
   latest-tag = !git tag -l | sort -r | head -1
   delete-latest-stash = "stash drop stash@{0}"
   delete-temporary-branches = "!git temporary-branches | xargs git branch -D"
