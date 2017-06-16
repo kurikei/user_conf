@@ -6,7 +6,6 @@ homesick exec_all "git submodule foreach git checkout master && git pull --prune
 (
   cd
   for castle in `homesick list | perl -lna -e 'print $F[0]'`; do
-    homesick unlink $castle
     homesick symlink $castle
   done
 )
