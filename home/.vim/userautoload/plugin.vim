@@ -25,6 +25,7 @@ call dein#add('bronson/vim-trailing-whitespace')
 call dein#add('lambdalisue/vim-gista', { 'on_cmd': 'Gista' })
 call dein#add('mattn/webapi-vim')
 call dein#add('nathanaelkane/vim-indent-guides')
+call dein#add('scrooloose/nerdtree')
 call dein#add('scrooloose/syntastic')
 call dein#add('stephpy/vim-yaml')
 call dein#add('thinca/vim-quickrun')
@@ -53,6 +54,9 @@ syntax enable
 if dein#check_install()
  call dein#install()
 endif
+
+" nerdtree
+map <C-n> :NERDTreeToggle<CR>
 
 " vim-indent-guides
 let g:indent_guides_auto_colors = 0
