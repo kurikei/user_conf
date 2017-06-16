@@ -24,6 +24,7 @@ call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
 call dein#add('bronson/vim-trailing-whitespace')
 call dein#add('lambdalisue/vim-gista', { 'on_cmd': 'Gista' })
 call dein#add('mattn/webapi-vim')
+call dein#add('nathanaelkane/vim-indent-guides')
 call dein#add('scrooloose/syntastic')
 call dein#add('stephpy/vim-yaml')
 call dein#add('thinca/vim-quickrun')
@@ -52,6 +53,13 @@ syntax enable
 if dein#check_install()
  call dein#install()
 endif
+
+" vim-indent-guides
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 2
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=black ctermbg=black
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=lightgrey ctermbg=darkgrey
 
 " neocomplete
 " see https://github.com/Shougo/neocomplete.vim for additional settings
