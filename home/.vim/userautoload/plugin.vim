@@ -41,8 +41,6 @@ call dein#add('wakatime/vim-wakatime')
 " colorscheme
 call dein#add('altercation/vim-colors-solarized')
 call dein#add('ciaranm/inkpot')
-call dein#add('desert256.vim')
-call dein#add('mrkn256.vim')
 call dein#add('tomasr/molokai')
 call dein#add('yuroyoro/yuroyoro256.vim')
 
