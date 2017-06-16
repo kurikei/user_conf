@@ -29,6 +29,7 @@ call dein#add('scrooloose/nerdtree')
 call dein#add('scrooloose/syntastic')
 call dein#add('stephpy/vim-yaml')
 call dein#add('thinca/vim-quickrun')
+call dein#add('thoughtbot/vim-rspec')
 call dein#add('tomtom/tcomment_vim')
 call dein#add('tpope/vim-endwise')
 call dein#add('tpope/vim-surround')
@@ -89,6 +90,14 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_save = 1
 let g:syntastic_check_on_wq = 0
+
+" vim-rspec
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+let g:rspec_command = "!bundle exec rspec {spec}"
+let g:rspec_runner = "os_x_iterm2"
 
 " vim-quickrun
 let g:quickrun_config = {
