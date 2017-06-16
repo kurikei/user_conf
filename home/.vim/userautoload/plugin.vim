@@ -109,15 +109,5 @@ let g:quickrun_config = {
 \   'outputter/error/error'   : 'quickfix',
 \   'outputter/buffer/split'  : ':rightbelow 8sp',
 \   'outputter/buffer/close_on_empty' : 1,
-\ },
-\ "ruby.rspec" : {
-\   "command": "rspec",
-\   "cmdopt": "-c -fd --tty",
-\   "exec": "bundle exec %c"
-\ },
-\ "ruby.rspec_line" : {
-\   "command": "rspec",
-\   "exec": "%c %s:%{line('.')} %o" ,
-\   "cmdopt": '-c -fd --tty'
 \ }
 \}
