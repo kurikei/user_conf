@@ -12,7 +12,6 @@ fi
 
 for xenv in $(ls ${anyenv_root}/share/anyenv-install); do
   which $xenv || anyenv install $xenv;
-  exec $SHELL -l
 done
 
 
