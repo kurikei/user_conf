@@ -1,44 +1,76 @@
-tap 'caskroom/cask'
-tap 'homebrew/boneyard'
-tap 'homebrew/bundle'
-tap 'homebrew/core'
-tap 'homebrew/services'
-tap 'homebrew/versions'
-tap 'rcmdnk/file'
-brew 'boost'
-brew 'coreutils'
-brew 'libpng'
-brew 'freetype'
-brew 'pcre'
-brew 'git'
-brew 'jpeg'
-brew 'xz'
-brew 'libtiff'
-brew 'libtool'
-brew 'imagemagick'
-brew 'openssl'
-brew 'libevent'
-brew 'lua'
-brew 'mas'
-brew 'peco'
-brew 'source-highlight'
-brew 'the_silver_searcher'
-brew 'tmux'
-brew 'tree'
-brew 'vim', args: ['with-lua']
-brew 'wget'
-cask 'appcleaner'
-cask 'clipmenu'
-cask 'google-japanese-ime'
-cask 'iterm2'
-cask 'kindle'
-mas 'Xcode', id: 497799835
-mas 'Evernote', id: 406056744
-mas '1Password', id: 443987910
-mas 'Wunderlist', id: 410628904
-mas 'Slack', id: 803453959
-mas 'Todoist', id: 585829637
-mas 'Deliveries', id: 924726344
-mas 'Reeder', id: 880001334
-mas 'LINE', id: 539883307
-mas 'Simplenote', id: 692867256
+tap "caskroom/cask"
+tap "homebrew/boneyard"
+tap "homebrew/bundle"
+tap "homebrew/core"
+tap "homebrew/fuse"
+tap "homebrew/services"
+tap "homebrew/versions"
+tap "rcmdnk/file"
+cask "osxfuse"
+brew "autoconf"
+brew "automake"
+brew "boost"
+brew "coreutils"
+brew "libpng"
+brew "freetype"
+brew "gettext"
+brew "git"
+brew "libffi"
+brew "pcre"
+brew "glib"
+brew "glide"
+brew "jpeg"
+brew "libtiff"
+brew "libtool"
+brew "xz"
+brew "imagemagick"
+brew "oniguruma"
+brew "jq"
+brew "openssl"
+brew "libevent"
+brew "lua"
+brew "mas"
+brew "nicovideo-dl"
+brew "nkf"
+brew "peco"
+brew "pkg-config"
+brew "rename"
+brew "source-highlight"
+brew "sshfs"
+brew "the_silver_searcher"
+brew "tmux"
+brew "tree"
+brew "vim", args: ["with-lua"]
+brew "wget"
+brew "youtube-dl"
+cask "appcleaner"
+cask "clipmenu"
+cask "dropbox"
+cask "filezilla"
+cask "firefox"
+cask "google-chrome"
+cask "google-japanese-ime"
+cask "google-photos-backup"
+cask "iterm2"
+cask "macfusion"
+cask "sequel-pro"
+cask "the-unarchiver"
+cask "vlc"
+mas "1Password", id: 443987910
+mas "Day One Classic", id: 422304217
+mas "Deliveries", id: 924726344
+mas "Evernote", id: 406056744
+mas "Kindle", id: 405399194
+mas "Kobito", id: 896624060
+mas "LanScan", id: 472226235
+mas "LINE", id: 539883307
+mas "Pocket", id: 568494494
+mas "Pushbullet", id: 948415170
+mas "Reeder", id: 880001334
+mas "Simplenote", id: 692867256
+mas "Slack", id: 803453959
+mas "StuffIt Expander", id: 405580712
+mas "Todoist", id: 585829637
+mas "Twitter", id: 409789998
+mas "Wunderlist", id: 410628904
+mas "Xcode", id: 497799835
