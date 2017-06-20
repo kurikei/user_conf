@@ -1,0 +1,4 @@
+drop database if exists tmp_db;
+create database tmp_db;
+use tmp_db;
+
