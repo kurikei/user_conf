@@ -84,7 +84,7 @@ set statusline+=%*
 set statusline=[%F%r%h%w]\[%{&fenc==''?&enc:&fenc}]\[POS=%04l,%04v][%p%%]\[LEN=%L]
 
 let g:syntastic_ruby_checkers = ['rubocop']
-let g:syntastic_ruby_rubocop_args = ['--display-cop-names']
+let g:syntastic_ruby_rubocop_args = ['-c ~/.rubocop.yml --display-cop-names']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
