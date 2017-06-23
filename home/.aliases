@@ -48,6 +48,19 @@ function cd2(){
 
 alias user_conf="cd ${_CWD}/../"
 
+# date
+function yyyymmddhhmmss(){
+  date $@ +%Y%m%d%H%M%S
+}
+
+function yyyymmdd(){
+  date $@ +%Y%m%d
+}
+
+function mmdd(){
+  date $@ +%m%d
+}
+
 # exec
 alias renew="exec \$SHELL -l"
 
