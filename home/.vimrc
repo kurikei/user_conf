@@ -58,6 +58,7 @@ colorscheme inkpot
 " autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 autocmd BufNewFile *.rb 0r $HOME/.vim/template/ruby.txt
 autocmd BufNewFile *.sh 0r $HOME/.vim/template/sh.txt
+autocmd BufNewFile *.sql 0r $HOME/.vim/template/sql.txt
 " autocmd BufNewFile,BufRead *.tx  set filetype=tt2html " xslate
 
 " q で quickfix を閉じる(for vim-quickrun)

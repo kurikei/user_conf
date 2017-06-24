@@ -8,6 +8,9 @@ cd ~/
 if [ ! -d ${anyenv_root} ]; then
   git clone https://github.com/riywo/anyenv ${anyenv_root}
   exec $SHELL -l
+else
+  cd ${anyenv_root}
+  git pull
 fi
 
 for xenv in $(ls ${anyenv_root}/share/anyenv-install); do

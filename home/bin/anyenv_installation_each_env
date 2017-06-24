@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+SCRIPT_NAME=${0##*/}
+LOGDIR=/tmp
+LOGFILE=${LOGDIR}/${SCRIPT_NAME}.log.`date +%Y%m%d`
+
+# install node
+for xenv_ver in `find ~ -name ".node-version" -exec cat {} \; | sort | uniq`; do
+  echo "start installing node ${xenv_ver}"
+  yes N | ndenv install $xenv_ver > $LOGFILE
+  echo "finish to install node ${xenv_ver}"
+done
+
+# install phpenv
+for xenv_ver in `find ~ -name ".php-version" -exec cat {} \; | sort | uniq`; do
+  echo "start installing install php ${xenv_ver}"
+  yes N | phpenv install $xenv_ver > $LOGFILE
+  echo "finish to install php ${xenv_ver}"
+done
+
+# install plenv
+for xenv_ver in `find ~ -name ".perl-version" -exec cat {} \; | sort | uniq`; do
+  echo "start installing perl ${xenv_ver}"
+  # インストール済みだと y/N がでない
+  plenv install $xenv_ver > $LOGFILE
+  echo "finish to install perl ${xenv_ver}"
+done
+
+# install pyenv
+for xenv_ver in `find ~ -name ".python-version" -exec cat {} \; | sort | uniq`; do
+  echo "start installing python ${xenv_ver}"
+  yes N | pyenv install $xenv_ver > $LOGFILE
+  echo "finish to install python ${xenv_ver}"
+done
+
+# install ruby
+for xenv_ver in `find ~ -name ".ruby-version" -not -path "*vendor/bundle*" -not -path "*ruby/gems*" -exec cat {} \; | sort | uniq`; do
+  echo "start installing ruby ${xenv_ver}"
+  yes N | rbenv install $xenv_ver > $LOGFILE
+  echo "finish to install ruby ${xenv_ver}"
+done

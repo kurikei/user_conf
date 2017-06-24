@@ -17,13 +17,13 @@ if changed 'bower.json'; then
   bower install
 fi
 
-# if changed 'db/migrate'; then
-#   echo "Migrations pending, migrating"
-#   bundle exec rake db:migrate RAILS_ENV=development
-#   bundle exec rake db:migrate RAILS_ENV=test
-#   # bundle exec rake db:migrate RAILS_ENV=production
-#   [[ -d 'tmp' ]] && touch 'tmp/restart.txt'
-# fi
+if changed 'db/migrate'; then
+  echo "Migrations pending, migrating"
+  bundle exec rake db:migrate RAILS_ENV=development
+  bundle exec rake db:migrate RAILS_ENV=test
+  # bundle exec rake db:migrate RAILS_ENV=production
+  [[ -d 'tmp' ]] && touch 'tmp/restart.txt'
+fi
 
 if changed 'package.json'; then
   echo "Package.json changed, installing"
