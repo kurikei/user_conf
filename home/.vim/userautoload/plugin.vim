@@ -57,6 +57,11 @@ if dein#check_install()
  call dein#install()
 endif
 
+" setting for each plugin
+
+" ale
+let g:ale_emit_conflict_warnings = 0
+
 " nerdtree
 map <C-n> :NERDTreeToggle<CR>
 
