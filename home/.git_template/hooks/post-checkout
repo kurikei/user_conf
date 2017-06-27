@@ -10,7 +10,7 @@ fi
 
 basename=${0##*/}
 
-for hook in `find ~/.homesick/repos/user_conf/home/.git_template/hooks/scripts/$basename/ -maxdepth 1 -type f`
+for hook in `find ~/.git_template/hooks/scripts/$basename -maxdepth 1 -type l`
 do
   $hook $@
   if [ $? != 0 ]; then
