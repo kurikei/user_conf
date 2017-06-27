@@ -37,6 +37,7 @@ call dein#add('tpope/vim-endwise')
 call dein#add('tpope/vim-surround')
 call dein#add('tsuyoshiwada/slack-memo-vim', {'depends': 'mattn/webapi-vim'})
 call dein#add('vim-perl/vim-perl')
+call dein#add('w0rp/ale')
 call dein#add('wakatime/vim-wakatime')
 " colorscheme
 call dein#add('altercation/vim-colors-solarized')

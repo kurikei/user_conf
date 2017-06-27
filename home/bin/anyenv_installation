@@ -30,3 +30,4 @@ if [ ! -d ${anyenv_root}/plugins/anyenv-git ]; then
 fi
 
 cd $current_directory
+exec $SHELL -l

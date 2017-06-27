@@ -2,7 +2,7 @@
 export RBENV_VERSION=`cat ~/.ruby-version`
 
 homesick pull --all
-homesick exec_all "git submodule foreach git checkout master && git pull --prune"
+homesick exec_all "git submodule init && git submodule foreach git checkout master && git pull --prune"
 (
   cd
   for castle in `homesick list | perl -lna -e 'print $F[0]'`; do
