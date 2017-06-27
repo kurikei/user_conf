@@ -4,6 +4,7 @@
 .idea
 .rubocop_todo.yml
 /.bundle
+!/.bundle/config
 /vendor/bundle
 [._]*.s[a-w][a-z]
 
