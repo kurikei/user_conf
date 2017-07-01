@@ -10,3 +10,6 @@
 [submodule "home/.anyenv"]
 	path = home/.anyenv
 	url = https://github.com/riywo/anyenv
+[submodule "home/git/github.com/NemProject/NanoWallet"]
+	path = home/git/github.com/NemProject/NanoWallet
+	url = https://github.com/NemProject/NanoWallet.git
