@@ -180,7 +180,7 @@ function unixtime(){
 }
 
 function unix_timestamp(){
-  mysql -NBe "select unix_timestamp('$1')"
+  mysql -NBe "select unix_timestamp('$*')"
 }
 
 # rbenv
