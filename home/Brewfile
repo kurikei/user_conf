@@ -41,8 +41,11 @@ brew "wget"
 brew "yarn"
 brew "youtube-dl"
 cask "appcleaner"
+cask "bathyscaphe"
+cask "bitbar"
 cask "clipy"
 cask "dropbox"
+cask "etcher"
 cask "filezilla"
 cask "firefox"
 cask "google-chrome"
@@ -55,6 +58,7 @@ cask "sequel-pro"
 cask "the-unarchiver"
 cask "vlc"
 mas "1Password", id: 443987910
+mas "Day One", id: 1055511498
 mas "Day One Classic", id: 422304217
 mas "Deliveries", id: 924726344
 mas "Evernote", id: 406056744
