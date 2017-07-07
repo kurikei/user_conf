@@ -16,3 +16,6 @@
 [submodule "home/git/github.com/tj/git-extras"]
 	path = home/git/github.com/tj/git-extras
 	url = https://github.com/tj/git-extras.git
+[submodule "home/git/github.com/rupa/z"]
+	path = home/git/github.com/rupa/z
+	url = https://github.com/rupa/z.git
