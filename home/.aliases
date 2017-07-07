@@ -65,7 +65,7 @@ function mmdd(){
 doc="docker-compose"
 
 # exec
-alias renew="exec \$SHELL -l"
+alias reload="exec \$SHELL -l"
 
 # find
 function delete-dead-symlinks() {
