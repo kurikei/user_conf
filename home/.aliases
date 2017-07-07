@@ -1,6 +1,10 @@
 _CWD=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 _BIN_DIR="${_CWD}/../bin"
 
+# one letter alias
+alias d="docker "
+alias g="git "
+
 # ask_yesno
 function ask_yesno() {
   read -p "$1 ([y]es or [N]o): "
