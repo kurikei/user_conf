@@ -78,7 +78,6 @@ autocmd BufNewFile,BufRead *_spec.rb set filetype=ruby.rspec
 nnoremap <C-c> :SyntasticCheck<Enter>
 nnoremap <C-c><C-o> /[<=>]\{7\}<Enter>
 nnoremap <C-p> :set number! list! paste!<Enter>
-nnoremap <C-t> :SyntasticToggleMode<Enter>
 " 外部コマンド
 " - <silent> から始める
 nnoremap <silent> rubo    :! bundle exec rubocop -a % <Enter>
