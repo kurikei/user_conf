@@ -1,0 +1,5 @@
+#!/bin/sh
+if [[ `which ctags` > /dev/null ]]; then
+  ctags=`which ctags`
+  $ctags --exclude='*.js' -R . > /dev/null 2>&1 &
+fi
