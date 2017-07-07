@@ -1,8 +1,13 @@
+[alias] # 1 letter
+  b = branch
+  d = diff
+  f = fetch
+  l = log
+  s = status
 [alias] # 2 letter
   br = branch
   ci = commit
   co = checkout
-  di = diff
   mb = !git merged-branch
   me = !git config --get-regexp user
   st = status
