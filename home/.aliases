@@ -46,8 +46,6 @@ function cd2(){
   fi
 }
 
-alias user_conf="cd ${_CWD}/../"
-
 # ctags
 alias ctags="`brew --prefix`/bin/ctags"
 
