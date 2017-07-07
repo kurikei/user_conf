@@ -29,6 +29,7 @@
   set-remote-pr ="!git config --add remote.pr.url `git config --get remote.origin.url`; git config --add remote.pr.fetch +refs/pull/*:refs/remotes/pr/*"
   show-latest-stash = "show stash@{0}"
   temporary-branches = "!git branch --list 'pr/*' --list 'conflict/*' --list 'tag/*' | egrep -vE '^\\*'"
+  upgrade-submodule = "!git submodule foreach git checkout master && git pull"
 [color]
   branch      = auto
   diff        = auto
