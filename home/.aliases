@@ -48,6 +48,9 @@ function cd2(){
 
 alias user_conf="cd ${_CWD}/../"
 
+# ctags
+alias ctags="`brew --prefix`/bin/ctags"
+
 # date
 function yyyymmddhhmmss(){
   date $@ +%Y%m%d%H%M%S
