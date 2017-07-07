@@ -19,3 +19,6 @@
 [submodule "home/git/github.com/rupa/z"]
 	path = home/git/github.com/rupa/z
 	url = https://github.com/rupa/z.git
+[submodule "home/git/github.com/github/hub"]
+	path = home/git/github.com/github/hub
+	url = https://github.com/github/hub.git
