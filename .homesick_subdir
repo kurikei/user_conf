@@ -11,4 +11,6 @@
 bin
 git/github.com/git
 git/github.com/memcached
+git/github.com/rupa
 git/github.com/thoughtbot
+git/github.com/tj
