@@ -13,3 +13,6 @@
 [submodule "home/git/github.com/NemProject/NanoWallet"]
 	path = home/git/github.com/NemProject/NanoWallet
 	url = https://github.com/NemProject/NanoWallet.git
+[submodule "home/git/github.com/tj/git-extras"]
+	path = home/git/github.com/tj/git-extras
+	url = https://github.com/tj/git-extras.git
