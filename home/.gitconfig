@@ -34,7 +34,7 @@
   show-latest-stash = "show stash@{0}"
   show-pr = "!f() { hash=`git log -n 1 --pretty='%H' $1`; git log --merges --oneline --reverse --ancestry-path ${hash}...master | grep 'Merge pull request #' | head -n 1; }; f"
   temporary-branches = "!git branch --list 'pr/*' --list 'conflict/*' --list 'tag/*' | egrep -vE '^\\*'"
-  upgrade-submodule = "!git submodule foreach git checkout master && git pull"
+  upgrade-submodule = "!git submodule foreach git checkout master && git pull origin master"
 [color]
   branch      = auto
   diff        = auto
@@ -69,3 +69,5 @@
 	diffFilter = diff-highlight
 [diff]
 	compactionHeuristic = true # 2.9.0 or later
+[rebase]
+	autostash = true
