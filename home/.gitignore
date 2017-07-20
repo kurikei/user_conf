@@ -3,6 +3,8 @@
 .local
 .idea
 .rubocop_todo.yml
+.yardoc
+.yard_output
 /.bundle
 !/.bundle/config
 /vendor/bundle
