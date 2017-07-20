@@ -71,6 +71,7 @@ doc="docker-compose"
 
 # exec
 alias reload="exec \$SHELL -l"
+alias reload!="reload"
 
 # find
 function delete-dead-symlinks() {
