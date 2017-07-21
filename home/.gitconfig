@@ -17,6 +17,7 @@
   checkout-pullrequest = !sh -c 'git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1' -
   checkout-tag = !sh -c 'git fetch && git checkout -b tag/$1 refs/tags/$1' -
   co-pr  = !git checkout-pullrequest
+  current-branch = rev-parse --abbrev-ref HEAD
   commish = "!f() { git commit -au -m \"$1\" && git pull && git push; }; f"
   delete-latest-stash = "stash drop stash@{0}"
   delete-temporary-branches = "!git temporary-branches | xargs git branch -D"
