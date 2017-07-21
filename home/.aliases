@@ -2,8 +2,11 @@ _CWD=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 _BIN_DIR="${_CWD}/../bin"
 
 # one letter alias
+alias b="bundle "
 alias d="docker "
 alias g="git "
+alias v="vim "
+alias command_ranking="history | perl -nla -e 'print \$F[1]' | sort | uniq -c | sort -nr | head -20 | slackcat --channel random --filename 'command ranking' --tee "
 
 # ask_yesno
 function ask_yesno() {
