@@ -29,24 +29,16 @@ function changed {
 
 if changed 'Gemfile.*'; then
   echo "Gemfile changed, bundling"
-  bundle check || bundle install
+  bundle check || bundle install > /dev/null 2>&1 &
   [[ -d 'tmp' ]] && touch 'tmp/restart.txt'
 fi
 
 if changed 'bower.json'; then
   echo "bower.json changed, installing"
-  bower install
-fi
-
-if changed 'db/migrate'; then
-  echo "Migrations pending, migrating"
-  bundle exec rake db:migrate RAILS_ENV=development
-  bundle exec rake db:migrate RAILS_ENV=test
-  # bundle exec rake db:migrate RAILS_ENV=production
-  [[ -d 'tmp' ]] && touch 'tmp/restart.txt'
+  bower install > /dev/null 2>&1 &
 fi
 
 if changed 'package.json'; then
   echo "Package.json changed, installing"
-  npm install
+  npm install > /dev/null 2>&1 &
 fi
