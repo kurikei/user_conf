@@ -76,3 +76,5 @@
 	compactionHeuristic = true # 2.9.0 or later
 [rebase]
 	autostash = true # 2.7 or later
+[ghq]
+  root = ~/git
