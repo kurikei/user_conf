@@ -22,3 +22,6 @@
 [submodule "home/git/github.com/github/hub"]
 	path = home/git/github.com/github/hub
 	url = https://github.com/github/hub.git
+[submodule "home/git/github.com/JustinFincher/WebDrop"]
+	path = home/git/github.com/JustinFincher/WebDrop
+	url = git@github.com:JustinFincher/WebDrop.git

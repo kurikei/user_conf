@@ -9,6 +9,7 @@
 .vim/dein/repos/github.com/Shougo/
 .vim/userautoload
 bin
+git/github.com/JustinFincher
 git/github.com/git
 git/github.com/github
 git/github.com/memcached
