@@ -29,7 +29,7 @@ function changed {
 
 if changed 'Gemfile.*'; then
   echo "Gemfile changed, bundling"
-  bundle check || bundle install > /dev/null 2>&1 &
+  (bundle check || bundle install) > /dev/null 2>&1 &
   [[ -d 'tmp' ]] && touch 'tmp/restart.txt'
 fi
 
