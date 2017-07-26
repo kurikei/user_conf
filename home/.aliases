@@ -2,7 +2,13 @@ _CWD=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 _BIN_DIR="${_CWD}/../bin"
 
 # command_ranking
-alias command_ranking="history | perl -nla -e 'print \$F[1]' | sort | uniq -c | sort -nr | head -20"
+function command_ranking() {
+  echo "=== total ==="
+  history | perl -nla -e 'print $F[1]' | sort | uniq -c | sort -nr | head -20
+  echo ""
+  echo "=== git subcommand ==="
+  history | perl -nla -e 'print $F[2] if $F[1] =~ /^(g|git)$/' | sort | uniq -c | sort -nr | head -20
+}
 
 # one letter alias
 alias b="bundle "
