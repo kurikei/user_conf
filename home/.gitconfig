@@ -73,7 +73,7 @@
 [interactive]
 	diffFilter = diff-highlight
 [diff]
-	compactionHeuristic = true # 2.9.0 or later
+	indentHeuristic = true # 2.11 or later
 [rebase]
 	autostash = true # 2.7 or later
 [ghq]
