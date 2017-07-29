@@ -78,3 +78,5 @@
 	autostash = true # 2.7 or later
 [ghq]
   root = ~/git
+[ghq "import"]
+ from-file = "cat ~/.ghq/repos/*"
