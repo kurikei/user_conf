@@ -1,4 +1,5 @@
 .bundle
+.ghq/repos
 .git_template/
 .git_template/hooks
 .git_template/hooks/scripts/post-checkout/
