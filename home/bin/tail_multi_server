@@ -1,0 +1,23 @@
+#!/bin/bash
+# original : https://gist.github.com/yuya-takeyama/3449306
+
+function kill_children {
+    pkill -P $$;
+    wait;
+}
+
+trap "kill_children" EXIT
+
+for host in $TAIL_HOSTS
+do
+    for file in $*
+    do
+        # nomal
+        # ssh -tt $host tail -F $file &
+
+        # append colorize hostname
+        ssh -tt $host "tail -F $file | perl -ne 'print qq/\e[33m[$host]\e[0m: \$_/'" &
+    done
+done
+
+wait

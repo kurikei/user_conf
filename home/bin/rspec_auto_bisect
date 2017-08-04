@@ -22,7 +22,7 @@ do
   do
     SEED=$RANDOM
     echo "[`date "+%Y-%m-%d %H:%M:%S"`] try ${i}-${j} (seed:$SEED)"
-    bundle exec rspec  --fail-fast --seed $SEED $* || (echo "[`date "+%Y-%m-%d %H:%M:%S"` ${i}-${j}]" >> $LOGFILE && bundle exec rspec --bisect --seed $SEED $* 2>&1 | tee -a $LOGFILE 2>&1 | slackcat --tee --channel ci_notification)
+    bundle exec rspec  --fail-fast --seed $SEED $* || (echo "[`date "+%Y-%m-%d %H:%M:%S"` ${i}-${j}]" >> $LOGFILE && bundle exec rspec --bisect --seed $SEED $* 2>&1 | tee -a $LOGFILE 2>&1 | slackcat --tee --channel timelines)
     echo "[`date "+%Y-%m-%d %H:%M:%S"`] success"
   done
 done
