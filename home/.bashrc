@@ -57,4 +57,4 @@ peco-history() {
 }
 
 # bind
-bind -x '"\C-h": peco-history'
+bind -x '"\C-r": peco-history'
