@@ -24,7 +24,7 @@ fi
 
 # http://qiita.com/yungsang/items/09890a06d204bf398eea
 peco-history() {
-  local CMD=$(fc -l 1 | cut -f2 | uniq | peco | head -n 1)
+  local CMD=$(fc -l 1 | sort -nr | cut -f2 | uniq | peco | head -n 1)
   # local NUM=$(history | wc -l)
   # local FIRST=$((-1*(NUM-1)))
   #
