@@ -1,6 +1,7 @@
 FILES="
 $HOME/.aliases
 $HOME/.iterm2_shell_integration.bash
+$HOME/git/github.com/Homebrew/brew/completions/bash/brew
 $HOME/git/github.com/git/git/contrib/completion/git-completion.bash
 $HOME/git/github.com/git/git/contrib/completion/git-prompt.sh
 $HOME/git/github.com/github/hub/etc/hub.bash_completion.sh
