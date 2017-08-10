@@ -172,7 +172,12 @@ alias gsp="git status --porcelain "
 alias modifiedfile="gsp | perl -wln -e 'print \$2 if /^([ AMD]){2}(.+)/'"
 
 # ghq
-alias cdr='exec_unless_empty cd $(ghq list -p | peco)'
+function cdr {
+  if [ "$1" != "" ]; then
+    local peco_option="--query $1"
+  fi
+  exec_unless_empty cd $(ghq list -p | peco $peco_option)
+}
 
 # grep
 alias grep="grep --color"
