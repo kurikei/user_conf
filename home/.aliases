@@ -274,8 +274,8 @@ function create_tmp() {
 # -i ... viminfo 指定
 # -N ... vi互換解除
 alias vim="vim -u $HOME/.vimrc -i $HOME/.viminfo -N"
-alias vim-plugin-install="vim +NeoBundleInstall +q"
-alias vim-plugin-update="vim +NeoBundleUpdate +q"
+alias vim-plugin-install="vim +PlugInstall +q"
+alias vim-plugin-update="vim +PlugUpdate +q"
 
 # Usage: `vimc file_name:line`
 function vimc(){
