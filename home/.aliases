@@ -289,6 +289,8 @@ function vimc(){
   fi
 }
 
+alias peco='peco --select-1 '
+
 # perl - with carton
 function uriescape(){
   carton exec perl -MURI::Escape -e "print uri_escape(q{$1}) . \"\n\" "
