@@ -279,6 +279,17 @@ function decode_base64(){
   carton exec perl -MMIME::Base64 -e "print decode_base64(q{$1})";
 }
 
+# Usage: exec_unless_empty cd    ... do nothing
+#        exec_unless_empty cd ~/ ... execute 'cd ~/'
+function exec_unless_empty() {
+  command=$1
+  shift
+
+  if [ $# -ne 0 ]; then
+    $command $@
+  fi
+}
+
 # 非推奨になったネットワークコマンド養成ギプス
 # http://blog.livedoor.jp/sonots/archives/38589335.html
 # -----------------------------------------------------------------------------
