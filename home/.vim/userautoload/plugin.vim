@@ -34,6 +34,8 @@ Plug 'yuroyoro/yuroyoro256.vim'
 call plug#end()
 
 " setting for each plugin
+" ale
+map <leader>at :ALEToggle<CR>
 
 " nerdtree
 map <C-n> :NERDTreeToggle<CR>
