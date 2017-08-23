@@ -228,14 +228,14 @@ alias rails="bundle exec rails "
 
 # rake
 alias rake="bundle exec rake "
-function rake_search_and_open_task {
+function if_rake_task {
   if [ "$1" != "" ]; then
     local peco_option="--query $1"
   fi
   exec_unless_empty vimc $(rake -W | peco $peco_option | ruby -nla -e 'puts $1 if $F.fetch(2) =~ /^(.+):{1}/')
 }
 
-function rake_search_routes {
+function if_rake_routes {
   if [ "$1" != "" ]; then
     local peco_option="--query $1 --select-1"
   fi
