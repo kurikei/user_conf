@@ -85,6 +85,14 @@ function mmdd(){
 # docker-compose
 doc="docker-compose"
 
+# env
+function if_env(){
+  if [ "$1" != "" ]; then
+    local peco_option="--query $1 --select-1"
+  fi
+  env | peco $peco_option
+}
+
 # exec
 alias reload="exec \$SHELL -l"
 alias reload!="reload"
