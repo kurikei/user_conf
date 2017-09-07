@@ -113,6 +113,20 @@ function set_general_git_config() {
   git config --local user.name kurikei
 }
 
+function if_kill_psaux(){
+  if [ "$1" != "" ]; then
+    local peco_option="--query $1"
+  fi
+  exec_unless_empty "kill -9" $(ps aux | peco $peco_option | perl -nla -e 'print $F[1]')
+}
+
+function if_kill_pstree(){
+  if [ "$1" != "" ]; then
+    local peco_option="--query $1"
+  fi
+  exec_unless_empty "kill -9" $(pstree | peco $peco_option | perl -nla -e 'print $1 if $_ =~ / +[\|\\\+\-\=]+ (\d+) /')
+}
+
 ### 何かして通ったら git add
 ##### perl -c && git add :
 function pcga(){
