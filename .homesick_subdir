@@ -4,6 +4,7 @@
 .git_template/hooks
 .git_template/hooks/scripts/post-checkout/
 .git_template/hooks/scripts/post-merge/
+.hammerspoon
 .peco
 .shellrc
 .ssh/conf.d
