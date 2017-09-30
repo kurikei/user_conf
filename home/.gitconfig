@@ -13,10 +13,12 @@
   st = status
 [alias] # functional
   aliases = !git config --get-regexp alias
+  branches = branch -a
   checkout-latest-tag = "!f() { git fetch --quiet; git checkout-tag `git latest-tag`;}; f"
   checkout-pullrequest = !sh -c 'git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1' -
   checkout-tag = !sh -c 'git fetch && git checkout -b tag/$1 refs/tags/$1' -
   co-pr  = !git checkout-pullrequest
+  current-branch = rev-parse --abbrev-ref HEAD
   commish = "!f() { git commit -au -m \"$1\" && git pull && git push; }; f"
   delete-latest-stash = "stash drop stash@{0}"
   delete-temporary-branches = "!git temporary-branches | xargs git branch -D"
@@ -29,10 +31,14 @@
   merged-branch = "!f() { git fetch --prune --quiet; git branch --merged | egrep -v '^\\*' | egrep -v 'master$' ; }; f"
   open-pr = "!f() { hash=`git log -n 1 --pretty='%H' $1`; hub browse -- `git log --merges --oneline --reverse --ancestry-path ${hash}...master | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%pull/%'`; }; f"
   pr-branches = "!git branch --list 'pr/*' | egrep -vE '^\\*'"
+  remotes = remote -v
+  remove-submodule = "!f() { git submodule deinit \"$1\" && git rm -r \"$1\"; }; f"
   replace-https-to-ssh = "!f() { remote=`git remote get-url origin`; if [[ \"$remote\" =~ ^https ]]; then git remote set-url origin ${remote/https:\\/\\/github.com\\//git@github.com:};else echo \"already ssh. $remote\";fi  ; }; f"
   set-remote-pr ="!git config --add remote.pr.url `git config --get remote.origin.url`; git config --add remote.pr.fetch +refs/pull/*:refs/remotes/pr/*"
   show-latest-stash = "show stash@{0}"
   show-pr = "!f() { hash=`git log -n 1 --pretty='%H' $1`; git log --merges --oneline --reverse --ancestry-path ${hash}...master | grep 'Merge pull request #' | head -n 1; }; f"
+  stashes = stash list
+  tags = tag
   temporary-branches = "!git branch --list 'pr/*' --list 'conflict/*' --list 'tag/*' | egrep -vE '^\\*'"
   upgrade-submodule = "!git submodule foreach git checkout master && git pull origin master"
 [color]
@@ -68,6 +74,10 @@
 [interactive]
 	diffFilter = diff-highlight
 [diff]
-	compactionHeuristic = true # 2.9.0 or later
+	indentHeuristic = true # 2.11 or later
 [rebase]
-	autostash = true
+	autostash = true # 2.7 or later
+[ghq]
+  root = ~/git
+[ghq "import"]
+ from-file = "cat ~/.ghq/repos/*"

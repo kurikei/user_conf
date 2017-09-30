@@ -1,9 +1,25 @@
 _CWD=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 _BIN_DIR="${_CWD}/../bin"
 
+# command_ranking
+function command_ranking() {
+  echo "=== total ==="
+  history | perl -nla -e 'print $F[1]' | sort | uniq -c | sort -nr | head -20
+  echo ""
+  echo "=== git subcommand ==="
+  history | perl -nla -e 'print $F[2] if $F[1] =~ /^(g|git)$/' | sort | uniq -c | sort -nr | head -20
+}
+
 # one letter alias
+alias b="bundle "
 alias d="docker "
 alias g="git "
+alias v="vim "
+
+# ag
+function agp() {
+  ag $* | peco
+}
 
 # ask_yesno
 function ask_yesno() {
@@ -69,8 +85,17 @@ function mmdd(){
 # docker-compose
 doc="docker-compose"
 
+# env
+function if_env(){
+  if [ "$1" != "" ]; then
+    local peco_option="--query $1 --select-1"
+  fi
+  env | peco $peco_option
+}
+
 # exec
 alias reload="exec \$SHELL -l"
+alias reload!="reload"
 
 # find
 function delete-dead-symlinks() {
@@ -86,6 +111,20 @@ alias gau="git add -u"
 function set_general_git_config() {
   git config --local user.email kurikei@gmail.com
   git config --local user.name kurikei
+}
+
+function if_kill_psaux(){
+  if [ "$1" != "" ]; then
+    local peco_option="--query $1"
+  fi
+  exec_unless_empty "kill -9" $(ps aux | peco $peco_option | perl -nla -e 'print $F[1]')
+}
+
+function if_kill_pstree(){
+  if [ "$1" != "" ]; then
+    local peco_option="--query $1"
+  fi
+  exec_unless_empty "kill -9" $(pstree | peco $peco_option | perl -nla -e 'print $1 if $_ =~ / +[\|\\\+\-\=]+ (\d+) /')
 }
 
 ### 何かして通ったら git add
@@ -159,6 +198,14 @@ alias gs="git status"
 alias gsp="git status --porcelain "
 alias modifiedfile="gsp | perl -wln -e 'print \$2 if /^([ AMD]){2}(.+)/'"
 
+# ghq
+function cdr {
+  if [ "$1" != "" ]; then
+    local peco_option="--query $1"
+  fi
+  exec_unless_empty cd $(ghq list -p | peco $peco_option) && git remote show origin | grep "pushes to `git current-branch`" | perl -nlaF -e 'print $1 if $_ =~ /\((.+)\)$/'
+}
+
 # grep
 alias grep="grep --color"
 
@@ -203,6 +250,19 @@ alias rails="bundle exec rails "
 
 # rake
 alias rake="bundle exec rake "
+function if_rake_task {
+  if [ "$1" != "" ]; then
+    local peco_option="--query $1"
+  fi
+  exec_unless_empty vimc $(rake -W | peco $peco_option | ruby -nla -e 'puts $1 if $F.fetch(2) =~ /^(.+):{1}/')
+}
+
+function if_rake_routes {
+  if [ "$1" != "" ]; then
+    local peco_option="--query $1 --select-1"
+  fi
+  rake routes | peco $peco_option
+}
 
 # rspec
 alias rspec="bundle exec rspec "
@@ -241,9 +301,10 @@ function create_tmp() {
 # -i ... viminfo 指定
 # -N ... vi互換解除
 alias vim="vim -u $HOME/.vimrc -i $HOME/.viminfo -N"
-alias vim-plugin-install="vim +NeoBundleInstall +q"
-alias vim-plugin-update="vim +NeoBundleUpdate +q"
+alias vim-plugin-install="vim +PlugInstall +q"
+alias vim-plugin-update="vim +PlugUpdate +q"
 
+# Usage: `vimc file_name:line`
 function vimc(){
   if [[ $1  =~ ^(.+):([0-9]+)$ ]]; then
     _FILENAME=${BASH_REMATCH[1]}
@@ -255,6 +316,8 @@ function vimc(){
   fi
 }
 
+alias peco='peco --select-1 '
+
 # perl - with carton
 function uriescape(){
   carton exec perl -MURI::Escape -e "print uri_escape(q{$1}) . \"\n\" "
@@ -262,6 +325,17 @@ function uriescape(){
 
 function decode_base64(){
   carton exec perl -MMIME::Base64 -e "print decode_base64(q{$1})";
+}
+
+# Usage: exec_unless_empty cd    ... do nothing
+#        exec_unless_empty cd ~/ ... execute 'cd ~/'
+function exec_unless_empty() {
+  command=$1
+  shift
+
+  if [ $# -ne 0 ]; then
+    $command $@
+  fi
 }
 
 # 非推奨になったネットワークコマンド養成ギプス

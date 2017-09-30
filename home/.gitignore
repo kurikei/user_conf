@@ -3,10 +3,13 @@
 .local
 .idea
 .rubocop_todo.yml
+.yardoc
+.yard_output
 /.bundle
 !/.bundle/config
 /vendor/bundle
 [._]*.s[a-w][a-z]
+tags
 
 # rails customize
 config/initializers/private_customize.rb

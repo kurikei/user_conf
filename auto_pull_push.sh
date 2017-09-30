@@ -5,7 +5,8 @@ GIT_DIR=$(cd $(dirname $0) && pwd)
 
 cd $GIT_DIR
 echo "[`date +%Y-%m-%dT%H:%M:%S%z`] $GIT_DIR"
-git add -A
-git commit -m "auto commit `date +%Y-%m-%dT%H:%M:%S%z`"
-GIT_SSH=./git-ssh.sh git pull
-GIT_SSH=./git-ssh.sh git push
+[[ `git pull --ff-only` ]] && git push || echo "cannot pull cause of not fast-forward"
+
+function git(){
+  GIT_SSH=./git-ssh.sh git
+};

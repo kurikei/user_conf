@@ -1,70 +1,41 @@
-" curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-" sh ./installer.sh ~/.vim/dein
-if &compatible
-  set nocompatible               " Be iMproved
-endif
+call plug#begin('~/.vim/plugged')
 
-" Required:
-set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
-
-" Required:
-call dein#begin('~/.vim/dein')
-
-" Let dein manage dein
-" Required:
-call dein#add('Shougo/dein.vim')
-
-" Add or remove your plugins here:
-"call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
-"call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
-"call dein#add('plasticboy/vim-markdown')
-call dein#add('Shougo/neocomplete')
-call dein#add('Shougo/neosnippet')
-call dein#add('Shougo/neosnippet-snippets')
-call dein#add('Shougo/unite.vim')
-call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
-call dein#add('bronson/vim-trailing-whitespace')
-call dein#add('lambdalisue/vim-gista', { 'on_cmd': 'Gista' })
-call dein#add('mattn/webapi-vim')
-call dein#add('nathanaelkane/vim-indent-guides')
-call dein#add('scrooloose/nerdtree')
-call dein#add('scrooloose/syntastic')
-call dein#add('stephpy/vim-yaml')
-call dein#add('thinca/vim-quickrun')
-call dein#add('thoughtbot/vim-rspec')
-call dein#add('tomtom/tcomment_vim')
-call dein#add('tpope/vim-endwise')
-call dein#add('tpope/vim-surround')
-call dein#add('tsuyoshiwada/slack-memo-vim', {'depends': 'mattn/webapi-vim'})
-call dein#add('vim-perl/vim-perl')
-call dein#add('w0rp/ale')
-call dein#add('wakatime/vim-wakatime')
+"Plug 'junegunn/fzf', { 'build': './install --all', 'merged': 0 }
+"Plug 'junegunn/fzf.vim', { 'depends': 'fzf' }
+"Plug 'plasticboy/vim-markdown'
+Plug 'Shougo/neocomplete'
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'Shougo/unite.vim'
+" Plug 'Shougo/vimproc.vim', {'build' : 'make'}
+Plug 'bronson/vim-trailing-whitespace'
+" Plug 'lambdalisue/vim-gista', { 'on_cmd': 'Gista' }
+Plug 'mattn/webapi-vim'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'scrooloose/nerdtree'
+Plug 'stephpy/vim-yaml'
+Plug 'thinca/vim-quickrun'
+Plug 'thoughtbot/vim-rspec'
+Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-surround'
+" Plug 'tsuyoshiwada/slack-memo-vim', {'depends': 'mattn/webapi-vim'}
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-perl/vim-perl'
+Plug 'w0rp/ale'
+Plug 'wakatime/vim-wakatime'
 " colorscheme
-call dein#add('altercation/vim-colors-solarized')
-call dein#add('ciaranm/inkpot')
-call dein#add('tomasr/molokai')
-call dein#add('yuroyoro/yuroyoro256.vim')
+Plug 'altercation/vim-colors-solarized'
+Plug 'ciaranm/inkpot'
+Plug 'tomasr/molokai'
+Plug 'yuroyoro/yuroyoro256.vim'
 
-" Required:
-call dein#end()
-
-" Required:
-filetype plugin indent on
-syntax enable
-
-
-" clean disabled plugin
-call map(dein#check_clean(), "delete(v:val, 'rf')")
-
-" If you want to install not installed plugins on startup.
-if dein#check_install()
- call dein#install()
-endif
+call plug#end()
 
 " setting for each plugin
-
 " ale
-let g:ale_emit_conflict_warnings = 0
+map <leader>at :ALEToggle<CR>
 
 " nerdtree
 map <C-n> :NERDTreeToggle<CR>
@@ -87,19 +58,8 @@ let g:neocomplete#enable_smart_case = 1
 nnoremap smp :SlackMemoPost<CR>
 nnoremap sml :SlackMemoList<CR>
 
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-set statusline=[%F%r%h%w]\[%{&fenc==''?&enc:&fenc}]\[POS=%04l,%04v][%p%%]\[LEN=%L]
-
-let g:syntastic_ruby_checkers = ['rubocop']
-let g:syntastic_ruby_rubocop_args = ['-c ~/.rubocop.yml --display-cop-names']
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_save = 1
-let g:syntastic_check_on_wq = 0
+" vim-airline
+let g:airline#extensions#ale#enabled = 1
 
 " vim-rspec
 map <Leader>t :call RunCurrentSpecFile()<CR>

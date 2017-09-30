@@ -6,8 +6,6 @@ if filereadable(expand('~/.local/.vimrc'))
 endif
 
 
-syntax on
-
 " OPTION DESCRIPTION - http://vimdoc.sourceforge.net/htmldoc/quickref.html#option-list
 set ambiwidth=double
 set autoindent " take indent for new line from previous line
@@ -66,16 +64,13 @@ autocmd FileType qf nnoremap <silent><buffer>q :quit<CR>
 
 "ファイルを開いたときに以前編集していたところに移動
 autocmd BufReadPost *
-	\ if line("'\"") > 1 && line("'\"") <= line("$") |
-	\   exe "normal! g`\"" |
-	\ endif
-
-autocmd BufNewFile,BufRead *_spec.rb set filetype=ruby.rspec
+  \ if line("'\"") > 1 && line("'\"") <= line("$") |
+  \   exe "normal! g`\"" |
+  \ endif
 
 " =============================================================================
 " nnoremap, nn - ノーマルモード時のキーバインド
 " =============================================================================
-nnoremap <C-c> :SyntasticCheck<Enter>
 nnoremap <C-c><C-o> /[<=>]\{7\}<Enter>
 nnoremap <C-p> :set number! list! paste!<Enter>
 " 外部コマンド
