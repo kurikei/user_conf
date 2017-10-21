@@ -33,6 +33,8 @@ set shiftwidth=2 " tabは半角スペース2個分
 set showmatch " 括弧の対応をハイライト
 set smartindent " 新しい行を開始したときに、新しい行のインデントを現在行と同じ量にする
 set softtabstop=0
+set spell
+set spelllang=en,cjk
 set statusline=[%F%r%h%w]\[%{&fenc==''?&enc:&fenc}]\[POS=%04l,%04v][%p%%]\[LEN=%L]
 set t_Co=256
 set tabstop=2  " tabは半角スペース2個分
@@ -40,6 +42,10 @@ set termencoding=utf8
 set visualbell t_vb=
 
 highlight CursorLine term=reverse cterm=reverse
+highlight clear SpellBad
+highlight SpellBad cterm=underline
+highlight clear SpellCap
+highlight SpellCap cterm=underline,bold
 colorscheme inkpot
 
 " =============================================================================
