@@ -53,6 +53,15 @@ function catline() {
   perl -ln -e "print $cond " $1;
 }
 
+# brew
+function if_brew_install(){
+  exec_unless_empty "brew install" $(brew search $1 | perl -nlaF"\t" -e 'print "$_" for @F' | peco)
+}
+
+function if_brew_cask_install(){
+  exec_unless_empty "brew cask install" $(brew cask search $1 | perl -nlaF"\t" -e 'print "$_" for @F' | peco)
+}
+
 # bundle
 alias be="bundle exec spring stop && bundle exec "
 
@@ -109,6 +118,12 @@ alias reload!="reload"
 # find
 function delete-dead-symlinks() {
   find -L $1 -type l -exec rm -i {} +
+}
+
+
+# mas
+function if_mas_install(){
+  exec_unless_empty "mas install" $(mas search $1 | perl -lnae 'print $F[0]')
 }
 
 # git
