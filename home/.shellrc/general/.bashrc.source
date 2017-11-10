@@ -1,13 +1,11 @@
 FILES="
+/usr/local/etc/bash_completion
 $HOME/.aliases
 $HOME/.iterm2_shell_integration.bash
 $HOME/git/github.com/Homebrew/brew/completions/bash/brew
 $HOME/git/github.com/docker/compose/contrib/completion/bash/docker-compose
 $HOME/git/github.com/docker/docker-ce/components/cli/contrib/completion/bash/docker
 $HOME/git/github.com/docker/machine/contrib/completion/bash/docker-machine.bash
-$HOME/git/github.com/git/git/contrib/completion/git-completion.bash
-$HOME/git/github.com/git/git/contrib/completion/git-prompt.sh
-$HOME/git/github.com/github/hub/etc/hub.bash_completion.sh
 $HOME/git/github.com/rupa/z/z.sh
 /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc
 /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc

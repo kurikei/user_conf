@@ -1,4 +1,5 @@
 .bundle
+.config
 .ghq/repos
 .git_template/
 .git_template/hooks

@@ -8,6 +8,15 @@ function command_ranking() {
   echo ""
   echo "=== git subcommand ==="
   history | perl -nla -e 'print $F[2] if $F[1] =~ /^(g|git)$/' | sort | uniq -c | sort -nr | head -20
+  echo ""
+  echo "=== docker subcommand ==="
+  history | perl -nla -e 'print $F[2] if $F[1] =~ /^(d|docker)$/' | sort | uniq -c | sort -nr | head -20
+  echo ""
+  echo "=== bundler subcommand ==="
+  history | perl -nla -e 'print $F[2] if $F[1] =~ /^(b|bundler?)$/' | sort | uniq -c | sort -nr | head -20
+  echo ""
+  echo "=== brew subcommand ==="
+  history | perl -nla -e 'print $F[2] if $F[1] =~ /^brew$/' | sort | uniq -c | sort -nr | head -20
 }
 
 # one letter alias
