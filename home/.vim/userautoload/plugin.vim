@@ -2,14 +2,13 @@ call plug#begin('~/.vim/plugged')
 
 "Plug 'junegunn/fzf', { 'build': './install --all', 'merged': 0 }
 "Plug 'junegunn/fzf.vim', { 'depends': 'fzf' }
-"Plug 'plasticboy/vim-markdown'
 Plug 'Shougo/neocomplete'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/unite.vim'
-" Plug 'Shougo/vimproc.vim', {'build' : 'make'}
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'bronson/vim-trailing-whitespace'
-" Plug 'lambdalisue/vim-gista', { 'on_cmd': 'Gista' }
+Plug 'fatih/vim-go'
 Plug 'mattn/webapi-vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'scrooloose/nerdtree'
@@ -19,7 +18,6 @@ Plug 'thoughtbot/vim-rspec'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
-" Plug 'tsuyoshiwada/slack-memo-vim', {'depends': 'mattn/webapi-vim'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-perl/vim-perl'
@@ -36,6 +34,7 @@ call plug#end()
 " setting for each plugin
 " ale
 map <leader>at :ALEToggle<CR>
+let g:ale_linters = {'go': ['gometalinter']}
 
 " nerdtree
 map <C-n> :NERDTreeToggle<CR>
@@ -79,10 +78,10 @@ let g:quickrun_config = {
 \   'outputter/error/error'           : 'quickfix',
 \   'outputter/buffer/split'          : ':rightbelow 8sp',
 \   'outputter/buffer/close_on_empty' : 1,
+\ },
+\ "sql": {
+\   'command': 'mysql',
+\   'exec': ['%c -u root < %s'],
 \ }
 \}
-
-let g:quickrun_config['sql'] = {
-\ 'command': 'mysql',
-\ 'exec': ['%c -u root < %s'],
-\ }
+map <Leader>q :cclose<CR>
