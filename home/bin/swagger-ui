@@ -1,0 +1,14 @@
+#!/bin/sh
+SWAGGER_PORT=${SWAGGER_PORT:-10001} # use port 10001 unless defined $SWAGGER_PORT
+abspath=$(cd $(dirname $1) && pwd)/$(basename $1)
+
+docker pull swaggerapi/swagger-ui
+docker run \
+  -d \
+  -p ${SWAGGER_PORT}:8080 \
+  -e API_URL=swagger.yaml \
+  -v $abspath:/usr/share/nginx/html/swagger.yaml \
+  --rm \
+  swaggerapi/swagger-ui:latest
+
+open http://localhost:${SWAGGER_PORT}
