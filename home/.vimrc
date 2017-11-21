@@ -65,8 +65,8 @@ autocmd BufNewFile *.sh 0r $HOME/.vim/template/sh.txt
 autocmd BufNewFile *.sql 0r $HOME/.vim/template/sql.txt
 " autocmd BufNewFile,BufRead *.tx  set filetype=tt2html " xslate
 
-" q で quickfix を閉じる(for vim-quickrun)
-autocmd FileType qf nnoremap <silent><buffer>q :quit<CR>
+" FileType go のときだけハードタブを使用
+autocmd FileType go setlocal noexpandtab tabstop=4 shiftwidth=4
 
 "ファイルを開いたときに以前編集していたところに移動
 autocmd BufReadPost *

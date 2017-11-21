@@ -8,7 +8,7 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'mattn/webapi-vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'scrooloose/nerdtree'
@@ -20,7 +20,7 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-perl/vim-perl'
+"Plug 'vim-perl/vim-perl'
 Plug 'w0rp/ale'
 Plug 'wakatime/vim-wakatime'
 " colorscheme
@@ -53,18 +53,28 @@ let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
 let g:neocomplete#enable_smart_case = 1
 
-" slack-memo-vim
-nnoremap smp :SlackMemoPost<CR>
-nnoremap sml :SlackMemoList<CR>
-
 " vim-airline
 let g:airline#extensions#ale#enabled = 1
 
+" vim-go
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <leader>b <Plug>(go-build)
+let g:go_fmt_autosave = 1
+let g:go_fmt_command = "goimports"
+let g:go_fmt_fail_silently = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+
 " vim-rspec
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+autocmd BufRead,BufNewFile *_spec.rb set filetype=ruby.rspec
+au FileType ruby.rspec map <Leader>t :call RunCurrentSpecFile()<CR>
+au FileType ruby.rspec map <Leader>s :call RunNearestSpec()<CR>
+au FileType ruby.rspec map <Leader>l :call RunLastSpec()<CR>
+au FileType ruby.rspec map <Leader>a :call RunAllSpecs()<CR>
 let g:rspec_command = "!bundle exec rspec {spec}"
 let g:rspec_runner = "os_x_iterm2"
 
