@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-export RBENV_VERSION=`cat ~/.ruby-version`
 export GIT_AUTHOR_NAME=kurikei
 export GIT_COMMITTER_NAME=kurikei
 export GIT_AUTHOR_EMAIL=kurikei@gmail.com
