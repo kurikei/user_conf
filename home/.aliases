@@ -59,7 +59,7 @@ function if_brew_install(){
 }
 
 function if_brew_cask_install(){
-  exec_unless_empty "brew cask install" $(brew cask search $1 | perl -nlaF"\t" -e 'print "$_" for @F' | peco)
+  exec_unless_empty "brew cask reinstall" $(brew cask search $1 | perl -nlaF"\t" -e 'print "$_" for @F' | peco)
 }
 
 # bundle

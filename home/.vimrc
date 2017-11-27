@@ -59,11 +59,14 @@ colorscheme inkpot
 "   they were given.  See autocmd-nested for [nested].
 "
 " =============================================================================
+" autocmd BufNewFile,BufRead *.tx  set filetype=tt2html " xslate
 " autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+autocmd BufRead,BufNewFile *.swift set filetype=swift
+
 autocmd BufNewFile *.rb 0r $HOME/.vim/template/ruby.txt
 autocmd BufNewFile *.sh 0r $HOME/.vim/template/sh.txt
 autocmd BufNewFile *.sql 0r $HOME/.vim/template/sql.txt
-" autocmd BufNewFile,BufRead *.tx  set filetype=tt2html " xslate
+
 
 " FileType go のときだけハードタブを使用
 autocmd FileType go setlocal noexpandtab tabstop=4 shiftwidth=4

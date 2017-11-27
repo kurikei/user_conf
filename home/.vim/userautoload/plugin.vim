@@ -11,6 +11,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'mattn/webapi-vim'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'rizzatti/dash.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'stephpy/vim-yaml'
 Plug 'thinca/vim-quickrun'
@@ -20,7 +21,6 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-"Plug 'vim-perl/vim-perl'
 Plug 'w0rp/ale'
 Plug 'wakatime/vim-wakatime'
 " colorscheme
@@ -35,6 +35,9 @@ call plug#end()
 " ale
 map <leader>at :ALEToggle<CR>
 let g:ale_linters = {'go': ['gometalinter']}
+
+" dash.vim
+nmap <silent> <leader>d <Plug>DashSearch
 
 " nerdtree
 map <C-n> :NERDTreeToggle<CR>

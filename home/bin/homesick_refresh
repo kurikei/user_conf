@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-export RBENV_VERSION=`cat ~/.ruby-version`
-
 homesick pull --all
 homesick exec_all "git submodule init && git submodule foreach git checkout master && git pull --prune"
 (
