@@ -2,10 +2,17 @@ call plug#begin('~/.vim/plugged')
 
 "Plug 'junegunn/fzf', { 'build': './install --all', 'merged': 0 }
 "Plug 'junegunn/fzf.vim', { 'depends': 'fzf' }
-Plug 'Shougo/neocomplete'
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
-Plug 'Shougo/unite.vim'
+if has('nvim')
+  Plug 'Shougo/denite.nvim'
+  Plug 'Shougo/deol.nvim'
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'Shougo/deoppet.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/neocomplete'
+  Plug 'Shougo/unite.vim'
+  Plug 'Shougo/neosnippet'
+  Plug 'Shougo/neosnippet-snippets'
+endif
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
