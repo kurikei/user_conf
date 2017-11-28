@@ -34,7 +34,12 @@ call plug#end()
 " setting for each plugin
 " ale
 map <leader>at :ALEToggle<CR>
-let g:ale_linters = {'go': ['gometalinter']}
+let g:ale_linters = {
+\ 'go': ['gometalinter'],
+\ 'sh': ['shellcheck', 'shfmt'],
+\ 'vim': ['vint'],
+\ 'yaml': ['swaglint', 'yamllint']
+\ }
 
 " dash.vim
 nmap <silent> <leader>d <Plug>DashSearch
