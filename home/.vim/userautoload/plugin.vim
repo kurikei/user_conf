@@ -68,7 +68,7 @@ let g:airline#extensions#ale#enabled = 1
 au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <leader>b <Plug>(go-build)
 let g:go_fmt_autosave = 1
-let g:go_fmt_command = "goimports"
+let g:go_fmt_command = 'goimports'
 let g:go_fmt_fail_silently = 1
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_functions = 1
@@ -83,12 +83,12 @@ au FileType ruby.rspec map <Leader>t :call RunCurrentSpecFile()<CR>
 au FileType ruby.rspec map <Leader>s :call RunNearestSpec()<CR>
 au FileType ruby.rspec map <Leader>l :call RunLastSpec()<CR>
 au FileType ruby.rspec map <Leader>a :call RunAllSpecs()<CR>
-let g:rspec_command = "!bundle exec rspec {spec}"
-let g:rspec_runner = "os_x_iterm2"
+let g:rspec_command = '!bundle exec rspec {spec}'
+let g:rspec_runner = 'os_x_iterm2'
 
 " vim-quickrun
 let g:quickrun_config = {
-\ "_" : {
+\ '_' : {
 \   'runner'                    : 'vimproc',
 \   'runner/vimproc/updatetime' : 60,
 \   'outputter'                       : 'error',
@@ -97,7 +97,7 @@ let g:quickrun_config = {
 \   'outputter/buffer/split'          : ':rightbelow 8sp',
 \   'outputter/buffer/close_on_empty' : 1,
 \ },
-\ "sql": {
+\ 'sql': {
 \   'command': 'mysql',
 \   'exec': ['%c -u root < %s'],
 \ }
