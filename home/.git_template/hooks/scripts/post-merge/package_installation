@@ -21,3 +21,8 @@ if changed 'package.json'; then
   echo "Package.json changed, installing"
   npm install > /dev/null 2>&1 &
 fi
+
+if changed 'Podfile.*'; then
+  echo "Podfile.* changed, installing"
+  pod install > /dev/null 2>&1 &
+fi
