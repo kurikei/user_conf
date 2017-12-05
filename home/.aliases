@@ -372,6 +372,24 @@ function exec_unless_empty() {
   fi
 }
 
+function package_install() {
+  if [ -f Gemfile ]; then
+    (bundle check || bundle install) >> /tmp/package_install.`date +\%Y\%m\%d` 2>&1 &
+  fi
+
+  if [ -f bower.json ]; then
+    bower install >> /tmp/package_install.`date +\%Y\%m\%d` 2>&1 &
+  fi
+
+  if [ -f package.json ]; then
+    npm install >> /tmp/package_install.`date +\%Y\%m\%d` 2>&1 &
+  fi
+
+  if [ -f Podfile ]; then
+    pod install > /tmp/package_install.`date +\%Y\%m\%d` 2>&1 &
+  fi
+}
+
 # 非推奨になったネットワークコマンド養成ギプス
 # http://blog.livedoor.jp/sonots/archives/38589335.html
 # -----------------------------------------------------------------------------
