@@ -109,7 +109,7 @@ function if_docker_attach(){
 }
 
 # docker-compose
-doc="docker-compose"
+alias doc="docker-compose"
 
 # env
 function if_env(){
