@@ -100,6 +100,14 @@ function mmdd(){
   date $@ +%m%d
 }
 
+# docker
+function if_docker_attach(){
+  if [ "$1" != "" ]; then
+    local peco_option="--query $1"
+  fi
+  exec_unless_empty "docker attach" $(docker ps | peco $peco_option | perl -lna -e 'print $F[0]')
+}
+
 # docker-compose
 doc="docker-compose"
 
