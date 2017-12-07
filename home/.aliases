@@ -100,8 +100,16 @@ function mmdd(){
   date $@ +%m%d
 }
 
+# docker
+function if_docker_attach(){
+  if [ "$1" != "" ]; then
+    local peco_option="--query $1"
+  fi
+  exec_unless_empty "docker attach" $(docker ps | peco $peco_option | perl -lna -e 'print $F[0]')
+}
+
 # docker-compose
-doc="docker-compose"
+alias doc="docker-compose"
 
 # env
 function if_env(){
@@ -227,8 +235,9 @@ function cdr {
   if [ "$1" != "" ]; then
     local peco_option="--query $1"
   fi
-  #exec_unless_empty cd $(ghq list -p | peco $peco_option) && git remote show origin | grep "pushes to `git current-branch`" | perl -nlaF -e 'print $1 if $_ =~ /\((.+)\)$/'
-  exec_unless_empty cd $(ghq list -p | peco $peco_option) && git pull --ff-only
+  GHQ_ROOT_FOR_CDR=${GHQ_ROOT_FOR_CDR:-~/git} # set GHQ_ROOT_FOR_CDR=~/git for default
+
+  exec_unless_empty cd $(GHQ_ROOT=$GHQ_ROOT_FOR_CDR ghq list -p | peco $peco_option) && git pull --ff-only && package_install
 }
 
 # grep
@@ -360,6 +369,24 @@ function exec_unless_empty() {
 
   if [ $# -ne 0 ]; then
     $command $@
+  fi
+}
+
+function package_install() {
+  if [ -f Gemfile ]; then
+    (bundle check || bundle install) >> /tmp/package_install.`date +\%Y\%m\%d` 2>&1 &
+  fi
+
+  if [ -f bower.json ]; then
+    bower install >> /tmp/package_install.`date +\%Y\%m\%d` 2>&1 &
+  fi
+
+  if [ -f package.json ]; then
+    npm install >> /tmp/package_install.`date +\%Y\%m\%d` 2>&1 &
+  fi
+
+  if [ -f Podfile ]; then
+    pod install > /tmp/package_install.`date +\%Y\%m\%d` 2>&1 &
   fi
 }
 
