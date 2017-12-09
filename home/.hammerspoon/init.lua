@@ -1,52 +1,52 @@
-hs.hotkey.bind({"control"}, "a", function()
+hs.hotkey.bind({'cmd', 'ctrl'}, "a", function()
   hs.application.launchOrFocus("Astro")
 end)
 
-hs.hotkey.bind({"control"}, "d", function()
+hs.hotkey.bind({'cmd', 'ctrl'}, "d", function()
   hs.application.launchOrFocus("Dash")
 end)
 
-hs.hotkey.bind({"control"}, "e", function()
+hs.hotkey.bind({'cmd', 'ctrl'}, "e", function()
   hs.application.launchOrFocus("Evernote")
 end)
 
-hs.hotkey.bind({"control"}, "f", function()
+hs.hotkey.bind({'cmd', 'ctrl'}, "f", function()
   hs.application.launchOrFocus("Firefox")
 end)
 
-hs.hotkey.bind({"control"}, "g", function()
+hs.hotkey.bind({'cmd', 'ctrl'}, "g", function()
   hs.application.launchOrFocus("Goland")
 end)
 
-hs.hotkey.bind({"control"}, "k", function()
+hs.hotkey.bind({'cmd', 'ctrl'}, "k", function()
   hs.application.launchOrFocus("Kindle")
 end)
 
-hs.hotkey.bind({"control"}, "i", function()
+hs.hotkey.bind({'cmd', 'ctrl'}, "i", function()
   hs.application.launchOrFocus("iTerm")
 end)
 
-hs.hotkey.bind({"control"}, "o", function()
+hs.hotkey.bind({'cmd', 'ctrl'}, "o", function()
   hs.application.launchOrFocus("1Password 6")
 end)
 
-hs.hotkey.bind({"control"}, "p", function()
+hs.hotkey.bind({'cmd', 'ctrl'}, "p", function()
   hs.application.launchOrFocus("Postman")
 end)
 
-hs.hotkey.bind({"control"}, "s", function()
+hs.hotkey.bind({'cmd', 'ctrl'}, "s", function()
   hs.application.launchOrFocus("Slack")
 end)
 
-hs.hotkey.bind({"control"}, "t", function()
+hs.hotkey.bind({'cmd', 'ctrl'}, "t", function()
   hs.application.launchOrFocus("Things")
 end)
 
-hs.hotkey.bind({"control"}, "x", function()
+hs.hotkey.bind({'cmd', 'ctrl'}, "x", function()
   hs.application.launchOrFocus("Xcode")
 end)
 
-hs.hotkey.bind({"control"}, ",", function()
+hs.hotkey.bind({'cmd', 'ctrl'}, ",", function()
   hs.application.launchOrFocus("Google Chrome")
 end)
 
