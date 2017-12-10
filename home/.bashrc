@@ -10,6 +10,11 @@ USER_CONF_DIR="${_CWD}/../"
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 
+# direnv
+if [ $(command -v direnv) ]; then
+  eval "$(direnv hook bash)"
+fi
+
 # source
 for file in `find $HOME/.shellrc -type f -name ".*" -follow -and -not -name "*.swp"`; do
   source $file;
