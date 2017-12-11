@@ -1,3 +1,4 @@
+require("auto_reload")
 hs.hotkey.bind({'cmd', 'ctrl'}, "a", function()
   hs.application.launchOrFocus("Astro")
 end)
