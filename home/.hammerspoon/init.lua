@@ -35,12 +35,16 @@ hs.hotkey.bind({'cmd', 'ctrl'}, "p", function()
   hs.application.launchOrFocus("Postman")
 end)
 
+hs.hotkey.bind({'cmd', 'ctrl'}, "r", function()
+  hs.application.launchOrFocus("Reeder")
+end)
+
 hs.hotkey.bind({'cmd', 'ctrl'}, "s", function()
   hs.application.launchOrFocus("Slack")
 end)
 
 hs.hotkey.bind({'cmd', 'ctrl'}, "t", function()
-  hs.application.launchOrFocus("Things")
+  hs.application.launchOrFocus("Todoist")
 end)
 
 hs.hotkey.bind({'cmd', 'ctrl'}, "x", function()
