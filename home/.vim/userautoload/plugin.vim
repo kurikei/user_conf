@@ -65,11 +65,13 @@ let g:neocomplete#enable_smart_case = 1
 let g:airline#extensions#ale#enabled = 1
 
 " vim-go
-au FileType go nmap <Leader>gd <Plug>(go-doc)
-au FileType go nmap <leader>b <Plug>(go-build)
+autocmd FileType go nmap <Leader>gd <Plug>(go-doc)
+autocmd FileType go nmap <leader>b <Plug>(go-def)
+autocmd FileType go nmap <leader>[ <Plug>(go-implements)
 let g:go_fmt_autosave = 1
 let g:go_fmt_command = 'goimports'
 let g:go_fmt_fail_silently = 1
+let g:go_gocode_unimported_packages = 1
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_interfaces = 1
