@@ -105,7 +105,14 @@ function if_docker_attach(){
   if [ "$1" != "" ]; then
     local peco_option="--query $1"
   fi
-  exec_unless_empty "docker attach" $(docker ps | peco $peco_option | perl -lna -e 'print $F[0]')
+  exec_unless_empty "docker attach" $(docker ps | tail +2 | peco $peco_option | perl -lna -e 'print $F[0]' | tail +2)
+}
+
+function if_docker_compose_attach(){
+  if [ "$1" != "" ]; then
+    local peco_option="--query $1"
+  fi
+  exec_unless_empty "docker-compose attach" $(docker-compose ps | tail +3 | peco $peco_option | perl -lna -e 'print $F[0]')
 }
 
 # docker-compose
