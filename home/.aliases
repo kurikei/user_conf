@@ -388,6 +388,10 @@ function package_install() {
     bower install >> /tmp/package_install.`date +\%Y\%m\%d` 2>&1 &
   fi
 
+  if [ -f Gopkg.toml ]; then
+    dep ensure > /tmp/package_install.`date +\%Y\%m\%d` 2>&1 &
+  fi
+
   if [ -f package.json ]; then
     npm install >> /tmp/package_install.`date +\%Y\%m\%d` 2>&1 &
   fi
