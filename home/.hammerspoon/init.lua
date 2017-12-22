@@ -1,58 +1,61 @@
-require("auto_reload")
-hs.hotkey.bind({'cmd', 'ctrl'}, "a", function()
+hs.hotkey.bind({'cmd', 'ctrl', 'alt'}, "a", function()
   hs.application.launchOrFocus("Astro")
 end)
 
-hs.hotkey.bind({'cmd', 'ctrl'}, "d", function()
+hs.hotkey.bind({'cmd', 'ctrl', 'alt'}, "c", function()
+  hs.application.launchOrFocus("Google Chrome")
+end)
+
+hs.hotkey.bind({'cmd', 'ctrl', 'alt'}, "d", function()
   hs.application.launchOrFocus("Dash")
 end)
 
-hs.hotkey.bind({'cmd', 'ctrl'}, "e", function()
+hs.hotkey.bind({'cmd', 'ctrl', 'alt'}, "e", function()
   hs.application.launchOrFocus("Evernote")
 end)
 
-hs.hotkey.bind({'cmd', 'ctrl'}, "f", function()
+hs.hotkey.bind({'cmd', 'ctrl', 'alt'}, "f", function()
   hs.application.launchOrFocus("Firefox")
 end)
 
-hs.hotkey.bind({'cmd', 'ctrl'}, "g", function()
+hs.hotkey.bind({'cmd', 'ctrl', 'alt'}, "g", function()
   hs.application.launchOrFocus("Goland")
 end)
 
-hs.hotkey.bind({'cmd', 'ctrl'}, "k", function()
+hs.hotkey.bind({'cmd', 'ctrl', 'alt'}, "k", function()
   hs.application.launchOrFocus("Kindle")
 end)
 
-hs.hotkey.bind({'cmd', 'ctrl'}, "i", function()
+hs.hotkey.bind({'cmd', 'ctrl', 'alt'}, "i", function()
   hs.application.launchOrFocus("iTerm")
 end)
 
-hs.hotkey.bind({'cmd', 'ctrl'}, "o", function()
+hs.hotkey.bind({'cmd', 'ctrl', 'alt'}, "o", function()
   hs.application.launchOrFocus("1Password 6")
 end)
 
-hs.hotkey.bind({'cmd', 'ctrl'}, "p", function()
+hs.hotkey.bind({'cmd', 'ctrl', 'alt'}, "p", function()
   hs.application.launchOrFocus("Postman")
 end)
 
-hs.hotkey.bind({'cmd', 'ctrl'}, "r", function()
+hs.hotkey.bind({'cmd', 'ctrl', 'alt'}, "r", function()
   hs.application.launchOrFocus("Reeder")
 end)
 
-hs.hotkey.bind({'cmd', 'ctrl'}, "s", function()
+hs.hotkey.bind({'cmd', 'ctrl', 'alt'}, "s", function()
   hs.application.launchOrFocus("Slack")
 end)
 
-hs.hotkey.bind({'cmd', 'ctrl'}, "t", function()
+hs.hotkey.bind({'cmd', 'ctrl', 'alt'}, "t", function()
   hs.application.launchOrFocus("Todoist")
 end)
 
-hs.hotkey.bind({'cmd', 'ctrl'}, "x", function()
+hs.hotkey.bind({'cmd', 'ctrl', 'alt'}, "x", function()
   hs.application.launchOrFocus("Xcode")
 end)
 
-hs.hotkey.bind({'cmd', 'ctrl'}, ",", function()
-  hs.application.launchOrFocus("Google Chrome")
+hs.hotkey.bind({'cmd', 'ctrl', 'alt'}, "c", function()
+  hs.application.launchOrFocus("Google Chrome Canary")
 end)
 
 local function remapKey(mods, key, keyCode)
