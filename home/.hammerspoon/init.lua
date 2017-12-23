@@ -54,7 +54,7 @@ hs.hotkey.bind({'cmd', 'ctrl', 'alt'}, "x", function()
   hs.application.launchOrFocus("Xcode")
 end)
 
-hs.hotkey.bind({'cmd', 'ctrl', 'alt'}, "c", function()
+hs.hotkey.bind({'cmd', 'ctrl', 'alt'}, ",", function()
   hs.application.launchOrFocus("Google Chrome Canary")
 end)
 
@@ -85,7 +85,4 @@ remapKey({ 'ctrl' }, 'j',  keyCodeSet({
   keyCode('escape'),
 }))
 
-hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'r', function()
-  hs.reload()
-end)
 hs.alert.show('Hammerspoon config loaded')
