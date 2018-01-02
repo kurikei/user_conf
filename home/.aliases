@@ -138,7 +138,7 @@ function delete-dead-symlinks() {
 
 # mas
 function if_mas_install(){
-  exec_unless_empty "mas install" $(mas search $1 | perl -lnae 'print $F[0]')
+  exec_unless_empty "mas install" $(mas search $1 | peco | perl -lnae 'print $F[0]')
 }
 
 # git
