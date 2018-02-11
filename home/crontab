@@ -1,3 +1,6 @@
 * * * * * crontab $HOME/crontab
 0 * * * * /usr/local/bin/brew bundle dump -f --file=~/Brewfile.$(system_profiler SPHardwareDataType 2> /dev/null | grep 'Serial Number (system)' | awk -F ': ' '{print $2}')
 0 */2 * * * /usr/local/bin/brew upgrade > /tmp/brew_upgrade.log.`date +\%Y\%m\%d` 2>&1
+
+# Tampermonkey の古いバックアップを消す
+0 0 * * * tm_oldfile=`(ls -t ~/Dropbox/アプリ/Tampermonkey/*.zip | tail -n+4) 2> /dev/null`; [ -n "$tm_oldfile" ] && rm -f $tm_oldfile
