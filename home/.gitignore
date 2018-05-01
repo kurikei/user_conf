@@ -2,7 +2,6 @@
 .erdconfig
 .local
 .idea
-.rubocop_todo.yml
 .yardoc
 .yard_output
 /.bundle
