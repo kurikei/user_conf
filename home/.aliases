@@ -63,7 +63,7 @@ function if_brew_cask_install(){
 }
 
 # bundle
-alias be="bundle exec spring stop && bundle exec "
+alias be="bundle exec "
 
 # cd
 cd() {
