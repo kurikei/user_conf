@@ -2,6 +2,7 @@
 .erdconfig
 .local
 .idea
+.pry_history
 .yardoc
 .yard_output
 /.bundle
