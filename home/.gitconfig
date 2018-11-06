@@ -81,3 +81,5 @@
   root = ~/git
 [ghq "import"]
  from-file = "cat ~/.ghq/repos/*"
+[credential "https://source.developers.google.com"]
+	helper = gcloud.sh
