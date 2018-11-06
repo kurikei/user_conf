@@ -1,0 +1,1 @@
+[ -f .envrc.shared ] && source .envrc.shared

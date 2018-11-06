@@ -66,6 +66,7 @@ autocmd BufRead,BufNewFile *.swift set filetype=swift
 autocmd BufNewFile *.rb 0r $HOME/.vim/template/ruby.txt
 autocmd BufNewFile *.sh 0r $HOME/.vim/template/sh.txt
 autocmd BufNewFile *.sql 0r $HOME/.vim/template/sql.txt
+autocmd BufNewFile .envrc 0r $HOME/.vim/template/.envrc.txt
 autocmd BufNewFile Gemfile 0r $HOME/.vim/template/gemfile
 autocmd BufNewFile package.json 0r $HOME/.vim/template/package.json
 
