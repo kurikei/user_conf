@@ -1,5 +1,13 @@
 let $CWD = expand('<sfile>:p:h')
 
+" Use vim-plug as package manager (https://github.com/junegunn/vim-plug)
+" 1. Install vim-plug
+"
+" $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" 2. Install plugins
+"
+" $ vim +PlugUpdate +q
 runtime! userautoload/*
 if filereadable(expand('~/.local/.vimrc'))
   source ~/.local/.vimrc
