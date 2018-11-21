@@ -6,7 +6,7 @@
   "devDependencies": {
     "@google-cloud/functions-emulator": "1.0.0-beta.5",
     "@google/clasp": "1.6.3",
-    "firebase-tools": "6.1.0",
+    "firebase-tools": "6.1.1",
     "npm-check-updates": "2.14.3",
     "openapi-codegen": "1.5.2",
     "prettier": "1.15.2",
