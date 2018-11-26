@@ -1,0 +1,10 @@
+source 'https://rubygems.org'
+group :development do
+  gem 'homesick'
+  gem 'rubocop'
+end
+
+group :development, :test do
+  gem 'cocoapods'
+  gem 'fastlane'
+end
