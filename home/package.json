@@ -9,7 +9,7 @@
     "@google/clasp": "1.7.0",
     "@types/jest": "23.3.10",
     "@vue/cli": "^3.2.1",
-    "firebase-tools": "6.2.0",
+    "firebase-tools": "6.2.1",
     "jest": "23.6.0",
     "npm": "^6.5.0",
     "npm-check-updates": "2.15.0",
