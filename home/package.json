@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "@types/google-apps-script": "0.0.35",
-    "@types/node": "10.12.21",
+    "@types/node": "10.12.23",
     "dotenv": "6.2.0"
   },
   "devDependencies": {
