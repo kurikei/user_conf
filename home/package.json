@@ -3,7 +3,7 @@
     "@google-cloud/functions-emulator": "1.0.0-beta.5",
     "@google/clasp": "1.7.0",
     "@vue/cli": "^3.2.1",
-    "firebase-tools": "6.3.1",
+    "firebase-tools": "6.4.0",
     "jest": "23.6.0",
     "npm": "^6.5.0",
     "npm-check-updates": "2.15.0",
