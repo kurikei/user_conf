@@ -6,7 +6,7 @@
     "firebase-tools": "6.5.0",
     "jest": "23.6.0",
     "npm": "^6.5.0",
-    "npm-check-updates": "2.15.0",
+    "npm-check-updates": "3.0.6",
     "openapi-codegen": "1.5.5",
     "prettier": "1.16.4",
     "ts-jest": "23.10.5",
