@@ -1,7 +1,7 @@
 {
   "devDependencies": {
     "@google-cloud/functions-emulator": "1.0.0-beta.5",
-    "@google/clasp": "1.7.0",
+    "@google/clasp": "2.2.1",
     "@vue/cli": "^3.2.1",
     "firebase-tools": "6.11.0",
     "jest": "24.9.0",
