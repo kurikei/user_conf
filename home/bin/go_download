@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -u
+go_version="$1"
+echo "go download version: ${go_version}"
+
+tar_file_path="go${go_version}.darwin-amd64.tar.gz"
+wget https://dl.google.com/go/${tar_file_path} -O /tmp/${tar_file_path}
+extract_path="${_KK_GO_EXTRACT_DIR}/go${go_version}"
+mkdir -pv $extract_path
+tar -C $extract_path -xf /tmp/$tar_file_path

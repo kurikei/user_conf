@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -u
+go_version="$1"
+echo "go link version: ${go_version}"
+
+extract_path="${_KK_GO_EXTRACT_DIR}/go${go_version}"
+ln -fns $HOME/.local/go${go_version}/go $HOME/.local/go
