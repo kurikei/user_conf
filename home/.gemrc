@@ -1,12 +1,6 @@
 # default option for gem command
 # http://guides.rubygems.org/command-reference/#gem-environment
 
-# A YAML array of remote gem repositories to install gems from
-:sources:
-- http://gems.github.com
-- http://gems.rubyforge.org
-- http://rubygems.org/
-
 # A string containing arguments for the specified gem command
 install: --no-document
 update: --no-document
