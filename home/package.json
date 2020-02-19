@@ -7,7 +7,7 @@
     "jest": "24.9.0",
     "npm": "^6.5.0",
     "npm-check-updates": "2.15.0",
-    "openapi-codegen": "1.5.6",
+    "openapi-codegen": "2.0.1",
     "prettier": "1.19.1",
     "ts-jest": "24.3.0",
     "tslint": "5.20.1",
