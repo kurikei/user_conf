@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# バージョンを逆順で出力し、マイナーバージョンが下がったら出力する(パッチが一番大きい)
+set -eux
+(cd $RBENV_ROOT && git pull --prune)
+rbenv install --list | \
+  sort -nr | \
+  perl -lne 'BEGIN{ $miner = 100 }; next unless $_ =~ /^2\.(\d+)\.(\d)$/; print if $1 < $miner; $miner = $1;' | \
+  xargs -I{} rbenv install {}

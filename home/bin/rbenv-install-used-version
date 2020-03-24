@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -eux
+ghq list -p | \
+  xargs -I{} find {} -name ".ruby-version" -maxdepth 1 | \
+  xargs -I{} cat {} | \
+  sort | \
+  uniq | \
+  xargs -I{} rbenv install {}
