@@ -247,6 +247,10 @@ function cdr {
   exec_unless_empty cd $(GHQ_ROOT=$GHQ_ROOT_FOR_CDR ghq list -p | peco $peco_option) && git pull --ff-only && package_install
 }
 
+function ghqgo {
+  GHQ_ROOT=$GOPATH/src ghq "$@"
+}
+
 # grep
 alias grep="grep --color"
 
@@ -389,7 +393,7 @@ function package_install() {
   fi
 
   if [ -f go.mod ]; then
-    go mod download > /tmp/package_install.`date +\%Y\%m\%d` 2>&1 &
+    go mod download >> /tmp/package_install.`date +\%Y\%m\%d` 2>&1 &
   fi
 
   if [ -f Gopkg.toml ]; then
