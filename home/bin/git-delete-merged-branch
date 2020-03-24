@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -eu
+
+function deleteBranch() {
+  git branch -d "$1"
+}
+
+for branch in $(git fetch --prune --quiet && git branch --merged | perl -ln -e "next if /^\*/;next if /^\s+master$/;print"); do
+  read -rp "Delete branch? ($branch) [Y/n]" Answer
+  case $Answer in
+    '' | [Yy]* )
+      deleteBranch "$branch"
+      ;;
+    [Nn]* )
+      continue;
+      ;;
+    * )
+      echo Please answer YES or NO.
+  esac
+done
